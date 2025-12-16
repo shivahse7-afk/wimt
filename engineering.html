@@ -1,0 +1,1596 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Engineering Courses - WIMT</title>
+    <style>
+        /* Reset and base styles */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: Arial, sans-serif;
+        }
+        
+        body {
+            color: #333;
+            line-height: 1.5;
+            background-color: #f5f5f5;
+        }
+        
+        a {
+            text-decoration: none;
+            color: inherit;
+        }
+        
+        /* Header Styles */
+        .header-top {
+            background-color: #1a237e;
+            color: white;
+            padding: 8px 0;
+            font-size: 14px;
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 15px;
+        }
+        
+        .header-top .container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        
+        .contact-info span {
+            margin-right: 20px;
+        }
+        
+        .social-icons a {
+            margin-left: 10px;
+            color: white;
+        }
+        
+        /* Main Header */
+        .main-header {
+            background-color: white;
+            padding: 15px 0;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+            position: relative;
+        }
+        
+        .main-header .container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        
+        .logo {
+            display: flex;
+            align-items: center;
+        }
+        
+        .logo-img {
+            background: url("images/wmit logo.png") center/contain no-repeat;
+            width: 80px;
+            height: 80px;
+            min-width: 80px;
+            color: white;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: bold;
+            margin-right: 15px;
+            border-radius: 5px;
+        }
+        
+        .logo-text h1 {
+            font-size: 20px;
+            color: #1a237e;
+            line-height: 1.2;
+        }
+        
+        .logo-text p {
+            font-size: 12px;
+            color: #666;
+        }
+        
+        /* Menu Button */
+        .menu-toggle {
+            display: none;
+            background: none;
+            border: none;
+            font-size: 24px;
+            color: #1a237e;
+            cursor: pointer;
+            padding: 5px;
+            z-index: 1001;
+        }
+        
+        /* Main Navigation */
+        .main-nav {
+            position: relative;
+        }
+        
+        .main-nav > ul {
+            display: flex;
+            list-style: none;
+        }
+        
+        .main-nav > ul > li {
+            position: relative;
+            margin-left: 15px;
+        }
+        
+        .main-nav > ul > li > a {
+            color: #333;
+            font-weight: 500;
+            font-size: 14px;
+            transition: color 0.3s;
+            padding: 8px 10px;
+            display: block;
+            cursor: pointer;
+            white-space: nowrap;
+        }
+        
+        .main-nav > ul > li > a:hover {
+            color: #1a237e;
+            background-color: #f0f0f0;
+            border-radius: 4px;
+        }
+        
+        .main-nav > ul > li > a.active {
+            color: #1a237e;
+            font-weight: 600;
+            background-color: #e8eaf6;
+            border-radius: 4px;
+        }
+        
+        /* Dropdown Menus */
+        .dropdown {
+            position: absolute;
+            top: 100%;
+            left: 0;
+            background-color: white;
+            min-width: 200px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+            border-radius: 5px;
+            opacity: 0;
+            visibility: hidden;
+            transform: translateY(10px);
+            transition: all 0.3s ease;
+            z-index: 1000;
+        }
+        
+        .main-nav > ul > li:hover .dropdown {
+            opacity: 1;
+            visibility: visible;
+            transform: translateY(0);
+        }
+        
+        .dropdown li {
+            list-style: none;
+            border-bottom: 1px solid #f0f0f0;
+        }
+        
+        .dropdown li:last-child {
+            border-bottom: none;
+        }
+        
+        .dropdown a {
+            padding: 10px 15px;
+            display: block;
+            color: #333;
+            transition: all 0.3s;
+            cursor: pointer;
+            font-size: 13px;
+        }
+        
+        .dropdown a:hover {
+            background-color: #e3f2fd;
+            color: #1a237e;
+            padding-left: 20px;
+        }
+        
+        /* Arrow indicators */
+        .has-dropdown > a::after {
+            content: "▾";
+            margin-left: 5px;
+            font-size: 12px;
+        }
+        
+        /* Page Header */
+        .page-header {
+            background: linear-gradient(rgba(26, 35, 126, 0.9), rgba(26, 35, 126, 0.8)), #1a237e;
+            color: white;
+            padding: 40px 0;
+            text-align: center;
+            margin-bottom: 30px;
+        }
+        
+        .page-header h1 {
+            font-size: 32px;
+            margin-bottom: 15px;
+        }
+        
+        .page-header p {
+            font-size: 16px;
+            max-width: 800px;
+            margin: 0 auto;
+            opacity: 0.9;
+        }
+        
+        /* Courses Section */
+        .courses-page {
+            padding: 20px 0 40px;
+        }
+        
+        .course-category {
+            margin-bottom: 40px;
+        }
+        
+        .category-title {
+            background-color: #1a237e;
+            color: white;
+            padding: 15px 20px;
+            border-radius: 5px;
+            margin-bottom: 20px;
+        }
+        
+        .category-title h2 {
+            font-size: 22px;
+            margin-bottom: 10px;
+        }
+        
+        .category-info {
+            display: flex;
+            gap: 20px;
+            flex-wrap: wrap;
+        }
+        
+        .eligibility, .duration {
+            font-size: 14px;
+            margin-bottom: 5px;
+            background: rgba(255,255,255,0.1);
+            padding: 5px 10px;
+            border-radius: 3px;
+        }
+        
+        .course-description {
+            background-color: white;
+            padding: 20px;
+            border-radius: 5px;
+            margin-bottom: 25px;
+            box-shadow: 0 3px 10px rgba(0,0,0,0.08);
+            border-left: 4px solid #1a237e;
+        }
+        
+        .semesters-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 20px;
+        }
+        
+        .semester-card {
+            background-color: white;
+            border-radius: 5px;
+            overflow: hidden;
+            box-shadow: 0 3px 10px rgba(0,0,0,0.08);
+            transition: transform 0.3s;
+        }
+        
+        .semester-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 5px 15px rgba(0,0,0,0.12);
+        }
+        
+        .semester-header {
+            background-color: #e3f2fd;
+            color: #1a237e;
+            padding: 12px;
+            font-weight: bold;
+            border-bottom: 1px solid #eee;
+            font-size: 16px;
+        }
+        
+        .semester-content {
+            padding: 15px;
+        }
+        
+        .subject-list {
+            list-style: none;
+        }
+        
+        .subject-list li {
+            padding: 8px 0;
+            border-bottom: 1px dashed #eee;
+            display: flex;
+            align-items: flex-start;
+        }
+        
+        .subject-list li:last-child {
+            border-bottom: none;
+        }
+        
+        .subject-code {
+            background-color: #f5f5f5;
+            padding: 3px 8px;
+            border-radius: 3px;
+            font-size: 12px;
+            font-weight: bold;
+            color: #1a237e;
+            margin-right: 10px;
+            min-width: 70px;
+            text-align: center;
+            flex-shrink: 0;
+        }
+        
+        .subject-name {
+            flex: 1;
+            font-size: 14px;
+        }
+        
+        /* Quick Navigation */
+        .quick-nav {
+            background-color: white;
+            padding: 20px;
+            border-radius: 5px;
+            margin-bottom: 30px;
+            box-shadow: 0 3px 10px rgba(0,0,0,0.08);
+        }
+        
+        .quick-nav h3 {
+            color: #1a237e;
+            margin-bottom: 15px;
+            font-size: 18px;
+        }
+        
+        .course-links {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+        }
+        
+        .course-link {
+            background-color: #e3f2fd;
+            color: #1a237e;
+            padding: 6px 12px;
+            border-radius: 20px;
+            font-size: 13px;
+            transition: all 0.3s;
+        }
+        
+        .course-link:hover {
+            background-color: #1a237e;
+            color: white;
+        }
+        
+        /* Back to Home Button */
+        .back-to-home {
+            text-align: center;
+            margin-top: 40px;
+        }
+        
+        .home-button {
+            display: inline-block;
+            background-color: #1a237e;
+            color: white;
+            padding: 12px 30px;
+            border-radius: 4px;
+            font-weight: bold;
+            font-size: 16px;
+            transition: background-color 0.3s;
+        }
+        
+        .home-button:hover {
+            background-color: #0d1a6b;
+        }
+        
+        /* Footer */
+        .footer {
+            background-color: #1a237e;
+            color: white;
+            padding: 50px 0 20px;
+            margin-top: 50px;
+        }
+        
+        .footer-content {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 30px;
+            margin-bottom: 40px;
+        }
+        
+        .footer-column h3 {
+            font-size: 16px;
+            margin-bottom: 20px;
+            position: relative;
+            padding-bottom: 10px;
+        }
+        
+        .footer-column h3:after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 40px;
+            height: 2px;
+            background-color: #e53935;
+        }
+        
+        .footer-column p {
+            margin-bottom: 15px;
+            font-size: 13px;
+            opacity: 0.8;
+        }
+        
+        .footer-column a {
+            display: block;
+            margin-bottom: 10px;
+            font-size: 13px;
+            opacity: 0.8;
+            transition: opacity 0.3s;
+            cursor: pointer;
+        }
+        
+        .footer-column a:hover {
+            opacity: 1;
+        }
+        
+        .footer-bottom {
+            text-align: center;
+            padding-top: 20px;
+            border-top: 1px solid rgba(255,255,255,0.1);
+            font-size: 13px;
+            opacity: 0.7;
+        }
+        
+        /* Responsive Styles */
+        
+        /* Tablet */
+        @media (min-width: 768px) {
+            .page-header h1 {
+                font-size: 36px;
+            }
+            
+            .page-header p {
+                font-size: 17px;
+            }
+            
+            .logo-text h1 {
+                font-size: 22px;
+            }
+            
+            .main-nav > ul > li {
+                margin-left: 20px;
+            }
+            
+            .main-nav > ul > li > a {
+                font-size: 15px;
+            }
+        }
+        
+        /* Desktop */
+        @media (min-width: 992px) {
+            .page-header {
+                padding: 60px 0;
+                margin-bottom: 40px;
+            }
+            
+            .page-header h1 {
+                font-size: 42px;
+            }
+            
+            .page-header p {
+                font-size: 18px;
+            }
+            
+            .courses-page {
+                padding: 20px 0 60px;
+            }
+            
+            .logo-text h1 {
+                font-size: 24px;
+            }
+            
+            .main-nav > ul > li {
+                margin-left: 25px;
+            }
+        }
+        
+        /* Mobile View */
+        @media (max-width: 767px) {
+            .header-top .container {
+                flex-direction: column;
+                text-align: center;
+                gap: 8px;
+            }
+            
+            .contact-info span {
+                display: block;
+                margin-right: 0;
+                margin-bottom: 5px;
+            }
+            
+            .contact-info span:last-child {
+                margin-bottom: 0;
+            }
+            
+            .logo {
+                max-width: 100%;
+                margin-bottom: 10px;
+                justify-content: center;
+                text-align: center;
+            }
+            
+            .logo-text h1 {
+                font-size: 18px;
+            }
+            
+            .logo-img {
+                margin-right: 10px;
+            }
+            
+            .menu-toggle {
+                display: flex;
+                position: absolute;
+                top: 50%;
+                right: 15px;
+                transform: translateY(-50%);
+                z-index: 1001;
+            }
+            
+            .main-nav {
+                position: fixed;
+                top: 0;
+                left: -100%;
+                width: 80%;
+                max-width: 300px;
+                height: 100vh;
+                background-color: white;
+                box-shadow: 0 0 15px rgba(0,0,0,0.1);
+                overflow-y: auto;
+                transition: left 0.3s ease;
+                z-index: 1000;
+                padding-top: 60px;
+            }
+            
+            .main-nav.active {
+                left: 0;
+            }
+            
+            .main-nav > ul {
+                flex-direction: column;
+                align-items: stretch;
+                padding: 0;
+            }
+            
+            .main-nav > ul > li {
+                margin: 0;
+                border-bottom: 1px solid #f0f0f0;
+            }
+            
+            .main-nav > ul > li > a {
+                padding: 15px 20px;
+                font-size: 16px;
+                border-bottom: none;
+            }
+            
+            .dropdown {
+                position: static;
+                opacity: 1;
+                visibility: visible;
+                transform: none;
+                box-shadow: none;
+                background-color: #f9f9f9;
+                max-height: 0;
+                overflow: hidden;
+                transition: max-height 0.3s ease;
+                min-width: auto;
+                border-radius: 0;
+            }
+            
+            .dropdown.active {
+                max-height: 500px;
+            }
+            
+            .dropdown a {
+                padding-left: 40px;
+                font-size: 14px;
+            }
+            
+            .dropdown .dropdown {
+                position: static;
+                margin-left: 0;
+            }
+            
+            .dropdown .dropdown a {
+                padding-left: 60px;
+            }
+            
+            .has-dropdown > a::after {
+                float: right;
+            }
+            
+            .page-header h1 {
+                font-size: 28px;
+            }
+            
+            .page-header p {
+                font-size: 15px;
+                padding: 0 10px;
+            }
+            
+            .category-title h2 {
+                font-size: 20px;
+            }
+            
+            .category-info {
+                flex-direction: column;
+                gap: 10px;
+            }
+            
+            .semesters-grid {
+                grid-template-columns: 1fr;
+                gap: 15px;
+            }
+            
+            .semester-card {
+                margin-bottom: 10px;
+            }
+            
+            .semester-header {
+                padding: 10px;
+                font-size: 15px;
+            }
+            
+            .semester-content {
+                padding: 12px;
+            }
+            
+            .subject-list li {
+                flex-direction: column;
+                align-items: flex-start;
+            }
+            
+            .subject-code {
+                margin-bottom: 5px;
+                align-self: flex-start;
+            }
+            
+            .quick-nav {
+                padding: 15px;
+            }
+            
+            .course-links {
+                justify-content: center;
+            }
+            
+            .course-link {
+                font-size: 12px;
+                padding: 5px 10px;
+            }
+            
+            .footer-content {
+                grid-template-columns: 1fr;
+                gap: 20px;
+                padding: 0 15px;
+            }
+            
+            /* Overlay when menu is open */
+            .menu-overlay {
+                display: none;
+                position: fixed;
+                top: 0;
+                left: 0;
+                width: 100%;
+                height: 100%;
+                background-color: rgba(0,0,0,0.5);
+                z-index: 999;
+            }
+            
+            .menu-overlay.active {
+                display: block;
+            }
+        }
+        
+        /* Extra Small Mobile */
+        @media (max-width: 480px) {
+            .page-header h1 {
+                font-size: 24px;
+            }
+            
+            .page-header p {
+                font-size: 14px;
+            }
+            
+            .category-title h2 {
+                font-size: 18px;
+            }
+            
+            .logo-text h1 {
+                font-size: 16px;
+            }
+            
+            .logo-img {
+                width: 50px;
+                height: 50px;
+                min-width: 50px;
+                font-size: 18px;
+            }
+            
+            .home-button {
+                padding: 10px 20px;
+                font-size: 14px;
+            }
+            
+            .subject-code {
+                font-size: 11px;
+                min-width: 60px;
+            }
+            
+            .subject-name {
+                font-size: 13px;
+            }
+        }
+    </style>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+    <!-- Header Top -->
+    <div class="header-top">
+        <div class="container">
+            <div class="contact-info">
+                <span><i class="fas fa-phone"></i> +91 9958430389</span>
+                <span><i class="fas fa-envelope"></i> info@wimt.org</span>
+            </div>
+            <div class="social-icons">
+                <a href="#"><i class="fab fa-facebook-f"></i></a>
+                <a href="#"><i class="fab fa-twitter"></i></a>
+                <a href="#"><i class="fab fa-linkedin-in"></i></a>
+                <a href="#"><i class="fab fa-instagram"></i></a>
+            </div>
+        </div>
+    </div>
+
+    <!-- Main Header -->
+    <header class="main-header">
+        <div class="container">
+            <div class="logo">
+                <div class="logo-img"></div>
+                <div class="logo-text">
+                    <h1>Wintech Institute of Management & Technology</h1>
+                    <p>Best Institute for Online Courses</p>
+                </div>
+            </div>
+            
+            <!-- Mobile Menu Toggle Button -->
+            <button class="menu-toggle" id="menuToggle" aria-label="Toggle menu">
+                <i class="fas fa-bars"></i>
+            </button>
+            
+            <nav class="main-nav" id="mainNav">
+                <ul>
+                    <li><a href="index.html" class="menu-link">Home</a></li>
+                    
+                    <li class="has-dropdown">
+                        <a href="#" class="menu-link">Courses</a>
+                        <ul class="dropdown">
+                            <li><a href="engineering.html" class="menu-link active">Engineering</a></li>
+                            <li><a href="manegement course.html" class="menu-link">Management</a></li>
+                            <li><a href="iti course.html" class="menu-link">ITI</a></li>
+                            <li><a href="hotel management.html" class="menu-link">Hotel Management</a></li>
+                            <li><a href="computer course.html" class="menu-link">Computer Application Courses</a></li>
+                            <li><a href="degital marketing course.html" class="menu-link">Digital Marketing Courses</a></li>
+                        </ul>
+                    </li>
+                    
+                    <li class="has-dropdown">
+                        <a href="#" class="menu-link">Examination</a>
+                        <ul class="dropdown">
+                            <li><a href="form.html" class="menu-link">Other Forms</a></li>
+                            <li><a href="result.html" class="menu-link">Results</a></li>
+                            <li><a href="application.html" class="menu-link">Application Form</a></li>
+                            <li><a href="#" class="menu-link">Fees Structure</a></li>
+                        </ul>
+                    </li>
+                    
+                    <li><a href="contect us.html" class="menu-link">Contact</a></li>
+                    <li><a href="verification.html" class="menu-link">Verification</a></li>
+                    
+                </ul>
+            </nav>
+            
+            <!-- Mobile Menu Overlay -->
+            <div class="menu-overlay" id="menuOverlay"></div>
+        </div>
+    </header>
+
+    <!-- Page Header -->
+    <section class="page-header">
+        <div class="container">
+            <h1>Engineering Courses at WIMT</h1>
+            <p>Comprehensive engineering programs designed to prepare students for successful careers in various technical fields. Choose from diploma and B.Tech programs with industry-relevant curriculum.</p>
+        </div>
+    </section>
+
+    <!-- Courses Page Content -->
+    <section class="courses-page">
+        <div class="container">
+            <!-- Quick Navigation -->
+            <div class="quick-nav">
+                <h3>Quick Navigation to Courses:</h3>
+                <div class="course-links">
+                    <a href="#civil-diploma" class="course-link">Diploma in Civil Engineering</a>
+                    <a href="#electrical-diploma" class="course-link">Diploma in Electrical Engineering</a>
+                    <a href="#electronics-diploma" class="course-link">Diploma in Electronics Engineering</a>
+                    <a href="#automobile-diploma" class="course-link">Diploma in Automobile Engineering</a>
+                    <a href="#chemical-diploma" class="course-link">Diploma in Chemical Engineering</a>
+                    <a href="#instrumentation-diploma" class="course-link">Diploma in Instrumentation Engineering</a>
+                    <a href="#civil-btech" class="course-link">B.Tech Civil Engineering</a>
+                    <a href="#chemical-btech" class="course-link">B.Tech Chemical Engineering</a>
+                    <a href="#electrical-btech" class="course-link">B.Tech Electrical Engineering</a>
+                    <a href="#automobile-btech" class="course-link">B.Tech Automobile Engineering</a>
+                    <a href="#electronics-btech" class="course-link">B.Tech Electronics & Communication</a>
+                    <a href="#computer-btech" class="course-link">B.Tech Computer Science</a>
+                </div>
+            </div>
+            
+            <!-- Diploma in Civil Engineering -->
+            <div class="course-category" id="civil-diploma">
+                <div class="category-title">
+                    <h2>Diploma in Civil Engineering</h2>
+                    <div class="category-info">
+                        <div class="eligibility">Eligibility: 10th/SSC</div>
+                        <div class="duration">Duration: Regular 3 Years</div>
+                    </div>
+                </div>
+                
+                <div class="course-description">
+                    <p>A Diploma in Civil Engineering is an employment-focused program that provides a grounding in construction basics, design, and infrastructure creation. The students gain practical skills in construction technology, surveying, and structural engineering. Civil engineering is a prime option if you're seeking top engineering courses with great career prospects. A diploma provides fast entry into the industry and opportunities in government as well as private sectors. Begin shaping your future with one of the best engineering courses today!</p>
+                </div>
+                
+                <div class="semesters-grid">
+                    <div class="semester-card">
+                        <div class="semester-header">Semester I</div>
+                        <div class="semester-content">
+                            <ul class="subject-list">
+                                <li><span class="subject-code">DCE 101</span><span class="subject-name">Communication English-I</span></li>
+                                <li><span class="subject-code">DCE 102</span><span class="subject-name">Applied Mathematics-I</span></li>
+                                <li><span class="subject-code">DCE 103</span><span class="subject-name">Engineering Physics-I</span></li>
+                                <li><span class="subject-code">DCE 104</span><span class="subject-name">Engineering Chemistry-I</span></li>
+                                <li><span class="subject-code">DCE 105</span><span class="subject-name">Computer Application Lab</span></li>
+                                <li><span class="subject-code">DCE 106</span><span class="subject-name">Workshop Practice Lab</span></li>
+                            </ul>
+                        </div>
+                    </div>
+                    
+                    <div class="semester-card">
+                        <div class="semester-header">Semester II</div>
+                        <div class="semester-content">
+                            <ul class="subject-list">
+                                <li><span class="subject-code">DCE 201</span><span class="subject-name">Applied Mathematics-II</span></li>
+                                <li><span class="subject-code">DCE 202</span><span class="subject-name">Engineering Physics-II</span></li>
+                                <li><span class="subject-code">DCE 203</span><span class="subject-name">Engineering Chemistry-II</span></li>
+                                <li><span class="subject-code">DCE 204</span><span class="subject-name">Engineering Graphics</span></li>
+                                <li><span class="subject-code">DCE 205</span><span class="subject-name">Physics Lab</span></li>
+                                <li><span class="subject-code">DCE 206</span><span class="subject-name">Chemistry Lab</span></li>
+                            </ul>
+                        </div>
+                    </div>
+                    
+                    <div class="semester-card">
+                        <div class="semester-header">Semester III</div>
+                        <div class="semester-content">
+                            <ul class="subject-list">
+                                <li><span class="subject-code">DCE 301</span><span class="subject-name">Engineering Mechanics</span></li>
+                                <li><span class="subject-code">DCE 302</span><span class="subject-name">Construction Material</span></li>
+                                <li><span class="subject-code">DCE 303</span><span class="subject-name">Surveying</span></li>
+                                <li><span class="subject-code">DCE 304</span><span class="subject-name">Civil Engineering Drawing</span></li>
+                                <li><span class="subject-code">DCE 305</span><span class="subject-name">Surveying Lab-I</span></li>
+                            </ul>
+                        </div>
+                    </div>
+                    
+                    <div class="semester-card">
+                        <div class="semester-header">Semester IV</div>
+                        <div class="semester-content">
+                            <ul class="subject-list">
+                                <li><span class="subject-code">DCE 401</span><span class="subject-name">Theory of Structures</span></li>
+                                <li><span class="subject-code">DCE 402</span><span class="subject-name">Transportation Engineering</span></li>
+                                <li><span class="subject-code">DCE 403</span><span class="subject-name">Interior Design</span></li>
+                                <li><span class="subject-code">DCE 404</span><span class="subject-name">Water Resources Management</span></li>
+                                <li><span class="subject-code">DCE 405</span><span class="subject-name">CAD in Civil Engineering Lab-I</span></li>
+                                <li><span class="subject-code">DCE 406</span><span class="subject-name">Surveying Lab-II</span></li>
+                            </ul>
+                        </div>
+                    </div>
+                    
+                    <div class="semester-card">
+                        <div class="semester-header">Semester V</div>
+                        <div class="semester-content">
+                            <ul class="subject-list">
+                                <li><span class="subject-code">DCE 501</span><span class="subject-name">Structural Engineering</span></li>
+                                <li><span class="subject-code">DCE 502</span><span class="subject-name">Quantity Surveying</span></li>
+                                <li><span class="subject-code">DCE 503</span><span class="subject-name">Concrete Technology & Construction</span></li>
+                                <li><span class="subject-code">DCE 504</span><span class="subject-name">Environmental Engineering</span></li>
+                                <li><span class="subject-code">DCE 505</span><span class="subject-name">CAD & Civil Engineering Lab-II</span></li>
+                                <li><span class="subject-code">DCE 506</span><span class="subject-name">Construction Lab</span></li>
+                            </ul>
+                        </div>
+                    </div>
+                    
+                    <div class="semester-card">
+                        <div class="semester-header">Semester VI</div>
+                        <div class="semester-content">
+                            <ul class="subject-list">
+                                <li><span class="subject-code">DCE 601</span><span class="subject-name">Construction Management</span></li>
+                                <li><span class="subject-code">DCE 602</span><span class="subject-name">Hydraulics</span></li>
+                                <li><span class="subject-code">DCE 603</span><span class="subject-name">Town Planning</span></li>
+                                <li><span class="subject-code">DCE 604</span><span class="subject-name">Computer Application in Civil Engineering Lab</span></li>
+                                <li><span class="subject-code">DCE 605</span><span class="subject-name">Project</span></li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Diploma in Electrical Engineering -->
+            <div class="course-category" id="electrical-diploma">
+                <div class="category-title">
+                    <h2>Diploma in Electrical Engineering</h2>
+                    <div class="category-info">
+                        <div class="eligibility">Eligibility: 10th/SSC</div>
+                        <div class="duration">Duration: Regular 3 Years</div>
+                    </div>
+                </div>
+                
+                <div class="course-description">
+                    <p>Diploma in Electrical Engineering is a 3-year professional course that imparts vital understanding of electrical circuits, power distribution, and electrical systems. Perfect for 10th or 12th students, it trains you to work as an Electrical Technician or Junior Engineer. This course is career-focused and an excellent stream for higher studies such as B.Tech. It's one of the best engineering courses for students looking for practical knowledge and rapid career entry in the field of engineering.</p>
+                </div>
+                
+                <div class="semesters-grid">
+                    <div class="semester-card">
+                        <div class="semester-header">Semester I</div>
+                        <div class="semester-content">
+                            <ul class="subject-list">
+                                <li><span class="subject-code">DEE 101</span><span class="subject-name">Communication English-I</span></li>
+                                <li><span class="subject-code">DEE 102</span><span class="subject-name">Applied Mathematics-I</span></li>
+                                <li><span class="subject-code">DEE 103</span><span class="subject-name">Engineering Physics-I</span></li>
+                                <li><span class="subject-code">DEE 104</span><span class="subject-name">Engineering Chemistry-I</span></li>
+                                <li><span class="subject-code">DEE 105</span><span class="subject-name">Computer Application Lab</span></li>
+                                <li><span class="subject-code">DEE 106</span><span class="subject-name">Workshop Practice Lab</span></li>
+                            </ul>
+                        </div>
+                    </div>
+                    
+                    <div class="semester-card">
+                        <div class="semester-header">Semester II</div>
+                        <div class="semester-content">
+                            <ul class="subject-list">
+                                <li><span class="subject-code">DEE 201</span><span class="subject-name">Applied Mathematics-II</span></li>
+                                <li><span class="subject-code">DEE 202</span><span class="subject-name">Engineering Physics-II</span></li>
+                                <li><span class="subject-code">DEE 203</span><span class="subject-name">Engineering Chemistry-II</span></li>
+                                <li><span class="subject-code">DEE 204</span><span class="subject-name">Engineering Graphics</span></li>
+                                <li><span class="subject-code">DEE 205</span><span class="subject-name">Physics Lab</span></li>
+                                <li><span class="subject-code">DEE 206</span><span class="subject-name">Chemistry Lab</span></li>
+                            </ul>
+                        </div>
+                    </div>
+                    
+                    <div class="semester-card">
+                        <div class="semester-header">Semester III</div>
+                        <div class="semester-content">
+                            <ul class="subject-list">
+                                <li><span class="subject-code">DEE 301</span><span class="subject-name">Engineering Mechanics</span></li>
+                                <li><span class="subject-code">DEE 302</span><span class="subject-name">Electronic Devices</span></li>
+                                <li><span class="subject-code">DEE 303</span><span class="subject-name">Circuit Theory</span></li>
+                                <li><span class="subject-code">DEE 304</span><span class="subject-name">Electrical Machines-I</span></li>
+                                <li><span class="subject-code">DEE 305</span><span class="subject-name">Electronic Devices Practical</span></li>
+                                <li><span class="subject-code">DEE 306</span><span class="subject-name">Electrical Machines Practical</span></li>
+                            </ul>
+                        </div>
+                    </div>
+                    
+                    <div class="semester-card">
+                        <div class="semester-header">Semester IV</div>
+                        <div class="semester-content">
+                            <ul class="subject-list">
+                                <li><span class="subject-code">DEE 401</span><span class="subject-name">Linear & Digital ICs</span></li>
+                                <li><span class="subject-code">DEE 402</span><span class="subject-name">Computer Hardware & Network</span></li>
+                                <li><span class="subject-code">DEE 403</span><span class="subject-name">Electrical Machines-II</span></li>
+                                <li><span class="subject-code">DEE 404</span><span class="subject-name">Measurement & Instruments</span></li>
+                                <li><span class="subject-code">DEE 405</span><span class="subject-name">Linear & Digital ICs Practical</span></li>
+                                <li><span class="subject-code">DEE 406</span><span class="subject-name">Electrical Machines-II Practical</span></li>
+                            </ul>
+                        </div>
+                    </div>
+                    
+                    <div class="semester-card">
+                        <div class="semester-header">Semester V</div>
+                        <div class="semester-content">
+                            <ul class="subject-list">
+                                <li><span class="subject-code">DEE 501</span><span class="subject-name">Power Systems-I</span></li>
+                                <li><span class="subject-code">DEE 502</span><span class="subject-name">Microprocessor & Microcontroller</span></li>
+                                <li><span class="subject-code">DEE 503</span><span class="subject-name">Electric Machine Design Construction</span></li>
+                                <li><span class="subject-code">DEE 504</span><span class="subject-name">Control of Electrical Machines</span></li>
+                                <li><span class="subject-code">DEE 505</span><span class="subject-name">Control of Electrical Machines Practical</span></li>
+                                <li><span class="subject-code">DEE 506</span><span class="subject-name">Microcontroller Practical</span></li>
+                            </ul>
+                        </div>
+                    </div>
+                    
+                    <div class="semester-card">
+                        <div class="semester-header">Semester VI</div>
+                        <div class="semester-content">
+                            <ul class="subject-list">
+                                <li><span class="subject-code">DEE 601</span><span class="subject-name">Power System-II</span></li>
+                                <li><span class="subject-code">DEE 602</span><span class="subject-name">Power Electronics</span></li>
+                                <li><span class="subject-code">DEE 603</span><span class="subject-name">Electrical Estimation</span></li>
+                                <li><span class="subject-code">DEE 604</span><span class="subject-name">Power Electronics Practical</span></li>
+                                <li><span class="subject-code">DEE 605</span><span class="subject-name">Project</span></li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Diploma in Electronics Engineering -->
+            <div class="course-category" id="electronics-diploma">
+                <div class="category-title">
+                    <h2>Diploma in Electronics Engineering</h2>
+                    <div class="category-info">
+                        <div class="eligibility">Eligibility: 10th/SSC</div>
+                        <div class="duration">Duration: Regular 3 Years</div>
+                    </div>
+                </div>
+                
+                <div class="course-description">
+                    <p>One of the best engineering courses for those students who are interested in working with electronics, circuits, and communication systems is the Diploma in Electronics Engineering. The content offers a large amount of practical skills and a technical understanding of how to work in the industry to develop electronics applications in design, manufacturing, and IT and similar related industries.</p>
+                </div>
+                
+                <div class="semesters-grid">
+                    <div class="semester-card">
+                        <div class="semester-header">Semester I</div>
+                        <div class="semester-content">
+                            <ul class="subject-list">
+                                <li><span class="subject-code">DEE 101</span><span class="subject-name">Communication English-I</span></li>
+                                <li><span class="subject-code">DEE 102</span><span class="subject-name">Applied Mathematics-I</span></li>
+                                <li><span class="subject-code">DEE 103</span><span class="subject-name">Engineering Physics-I</span></li>
+                                <li><span class="subject-code">DEE 104</span><span class="subject-name">Engineering Chemistry-I</span></li>
+                                <li><span class="subject-code">DEE 105</span><span class="subject-name">Computer Application Lab</span></li>
+                                <li><span class="subject-code">DEE 106</span><span class="subject-name">Workshop Practice Lab</span></li>
+                            </ul>
+                        </div>
+                    </div>
+                    
+                    <div class="semester-card">
+                        <div class="semester-header">Semester II</div>
+                        <div class="semester-content">
+                            <ul class="subject-list">
+                                <li><span class="subject-code">DEE 201</span><span class="subject-name">Applied Mathematics-II</span></li>
+                                <li><span class="subject-code">DEE 202</span><span class="subject-name">Engineering Physics-II</span></li>
+                                <li><span class="subject-code">DEE 203</span><span class="subject-name">Engineering Chemistry-II</span></li>
+                                <li><span class="subject-code">DEE 204</span><span class="subject-name">Engineering Graphics</span></li>
+                                <li><span class="subject-code">DEE 205</span><span class="subject-name">Physics Lab</span></li>
+                                <li><span class="subject-code">DEE 206</span><span class="subject-name">Chemistry Lab</span></li>
+                            </ul>
+                        </div>
+                    </div>
+                    
+                    <div class="semester-card">
+                        <div class="semester-header">Semester III</div>
+                        <div class="semester-content">
+                            <ul class="subject-list">
+                                <li><span class="subject-code">DEE 301</span><span class="subject-name">Electrical Circuits & Instrumentation</span></li>
+                                <li><span class="subject-code">DEE 302</span><span class="subject-name">Electronic Devices</span></li>
+                                <li><span class="subject-code">DEE 303</span><span class="subject-name">C Programming</span></li>
+                                <li><span class="subject-code">DEE 304</span><span class="subject-name">Microprocessor</span></li>
+                                <li><span class="subject-code">DEE 305</span><span class="subject-name">Electronic Devices Lab</span></li>
+                                <li><span class="subject-code">DEE 306</span><span class="subject-name">Electrical Circuits and Instrumentation Lab</span></li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Diploma in Automobile Engineering -->
+            <div class="course-category" id="automobile-diploma">
+                <div class="category-title">
+                    <h2>Diploma in Automobile Engineering</h2>
+                    <div class="category-info">
+                        <div class="eligibility">Eligibility: 10th/SSC</div>
+                        <div class="duration">Duration: Regular 3 Years</div>
+                    </div>
+                </div>
+                
+                <div class="course-description">
+                    <p>If you're a student who is passionate about vehicles, engine design and development, or automotive technology, then the Diploma in Automobile Engineering is one of the best engineering courses you can take. This course is likely to prepare you with a variety of practical skills for a career in the automotive industry.</p>
+                </div>
+                
+                <div class="semesters-grid">
+                    <div class="semester-card">
+                        <div class="semester-header">Semester I</div>
+                        <div class="semester-content">
+                            <ul class="subject-list">
+                                <li><span class="subject-code">DAE 101</span><span class="subject-name">Communication English-I</span></li>
+                                <li><span class="subject-code">DAE 102</span><span class="subject-name">Applied Mathematics-I</span></li>
+                                <li><span class="subject-code">DAE 103</span><span class="subject-name">Engineering Physics-I</span></li>
+                                <li><span class="subject-code">DAE 104</span><span class="subject-name">Engineering Chemistry-I</span></li>
+                                <li><span class="subject-code">DAE 105</span><span class="subject-name">Computer Application Lab</span></li>
+                                <li><span class="subject-code">DAE 106</span><span class="subject-name">Workshop Practice Lab</span></li>
+                            </ul>
+                        </div>
+                    </div>
+                    
+                    <div class="semester-card">
+                        <div class="semester-header">Semester II</div>
+                        <div class="semester-content">
+                            <ul class="subject-list">
+                                <li><span class="subject-code">DAE 201</span><span class="subject-name">Applied Mathematics-II</span></li>
+                                <li><span class="subject-code">DAE 202</span><span class="subject-name">Engineering Physics-II</span></li>
+                                <li><span class="subject-code">DAE 203</span><span class="subject-name">Engineering Chemistry-II</span></li>
+                                <li><span class="subject-code">DAE 204</span><span class="subject-name">Engineering Graphics</span></li>
+                                <li><span class="subject-code">DAE 205</span><span class="subject-name">Physics Lab</span></li>
+                                <li><span class="subject-code">DAE 206</span><span class="subject-name">Chemistry Lab</span></li>
+                            </ul>
+                        </div>
+                    </div>
+                    
+                    <div class="semester-card">
+                        <div class="semester-header">Semester III</div>
+                        <div class="semester-content">
+                            <ul class="subject-list">
+                                <li><span class="subject-code">DAE 301</span><span class="subject-name">Engineering Mechanics</span></li>
+                                <li><span class="subject-code">DAE 302</span><span class="subject-name">Manufacturing Technology-I</span></li>
+                                <li><span class="subject-code">DAE 303</span><span class="subject-name">Fluid Mechanics</span></li>
+                                <li><span class="subject-code">DAE 304</span><span class="subject-name">Engineering Drawing</span></li>
+                                <li><span class="subject-code">DAE 305</span><span class="subject-name">Engineering Mechanics Lab</span></li>
+                            </ul>
+                        </div>
+                    </div>
+                    
+                    <div class="semester-card">
+                        <div class="semester-header">Semester IV</div>
+                        <div class="semester-content">
+                            <ul class="subject-list">
+                                <li><span class="subject-code">DAE 401</span><span class="subject-name">Applied Thermodynamics</span></li>
+                                <li><span class="subject-code">DAE 402</span><span class="subject-name">Manufacturing Technology-II</span></li>
+                                <li><span class="subject-code">DAE 403</span><span class="subject-name">Automobile Electrical & Electronics</span></li>
+                                <li><span class="subject-code">DAE 404</span><span class="subject-name">Automobile Chassis</span></li>
+                                <li><span class="subject-code">DAE 405</span><span class="subject-name">Automobile Electrical & Electronics Lab</span></li>
+                                <li><span class="subject-code">DAE 406</span><span class="subject-name">Workshop Lab-II</span></li>
+                            </ul>
+                        </div>
+                    </div>
+                    
+                    <div class="semester-card">
+                        <div class="semester-header">Semester V</div>
+                        <div class="semester-content">
+                            <ul class="subject-list">
+                                <li><span class="subject-code">DAE 501</span><span class="subject-name">Automobile Transmission</span></li>
+                                <li><span class="subject-code">DAE 502</span><span class="subject-name">Vehicle Body Technology</span></li>
+                                <li><span class="subject-code">DAE 503</span><span class="subject-name">Two & Three Wheeler Technology</span></li>
+                                <li><span class="subject-code">DAE 504</span><span class="subject-name">Tractor & Farm Equipment</span></li>
+                                <li><span class="subject-code">DAE 505</span><span class="subject-name">Automobile Workshop</span></li>
+                            </ul>
+                        </div>
+                    </div>
+                    
+                    <div class="semester-card">
+                        <div class="semester-header">Semester VI</div>
+                        <div class="semester-content">
+                            <ul class="subject-list">
+                                <li><span class="subject-code">DAE 601</span><span class="subject-name">Industrial Engineering & Road Transport</span></li>
+                                <li><span class="subject-code">DAE 602</span><span class="subject-name">CAD/CAM</span></li>
+                                <li><span class="subject-code">DAE 603</span><span class="subject-name">Automotive Maintenance & Pollution Control</span></li>
+                                <li><span class="subject-code">DAE 604</span><span class="subject-name">CAD/CAM Lab</span></li>
+                                <li><span class="subject-code">DAE 605</span><span class="subject-name">Project</span></li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Diploma in Chemical Engineering -->
+            <div class="course-category" id="chemical-diploma">
+                <div class="category-title">
+                    <h2>Diploma in Chemical Engineering</h2>
+                    <div class="category-info">
+                        <div class="eligibility">Eligibility: 10th/SSC</div>
+                        <div class="duration">Duration: Regular 3 Years</div>
+                    </div>
+                </div>
+                
+                <div class="course-description">
+                    <p>A Diploma in Chemical Engineering is one of the best engineering courses for students with an interest in chemical processes, production, and use of chemicals in industries. It prepares the aspiring student with hands-on experience and technical knowledge to prepare them for careers in the pharmaceutical and food and chemical industries.</p>
+                </div>
+                
+                <div class="semesters-grid">
+                    <div class="semester-card">
+                        <div class="semester-header">Semester I</div>
+                        <div class="semester-content">
+                            <ul class="subject-list">
+                                <li><span class="subject-code">DCE 101</span><span class="subject-name">Induction Programme with Essence of Indian Knowledge</span></li>
+                                <li><span class="subject-code">DCE 102</span><span class="subject-name">Mathematics - I</span></li>
+                                <li><span class="subject-code">DCE 103</span><span class="subject-name">Communication Skills in English</span></li>
+                                <li><span class="subject-code">DCE 104</span><span class="subject-name">Sports and Yoga</span></li>
+                                <li><span class="subject-code">DCE 105</span><span class="subject-name">Engineering Graphics</span></li>
+                                <li><span class="subject-code">DCE 106</span><span class="subject-name">Basic Chemistry</span></li>
+                                <li><span class="subject-code">DCE 107</span><span class="subject-name">Plant Utilities</span></li>
+                                <li><span class="subject-code">DCE 108</span><span class="subject-name">Material Science and Technology</span></li>
+                            </ul>
+                        </div>
+                    </div>
+                    
+                    <div class="semester-card">
+                        <div class="semester-header">Semester II</div>
+                        <div class="semester-content">
+                            <ul class="subject-list">
+                                <li><span class="subject-code">DCE 201</span><span class="subject-name">Basic Engineering Drawing and Graphics</span></li>
+                                <li><span class="subject-code">DCE 202</span><span class="subject-name">Sports and Yoga</span></li>
+                                <li><span class="subject-code">DCE 203</span><span class="subject-name">Applied Mathematics</span></li>
+                                <li><span class="subject-code">DCE 204</span><span class="subject-name">Industrial Chemistry</span></li>
+                                <li><span class="subject-code">DCE 205</span><span class="subject-name">Chemical and Mechanical Engineering Workshop</span></li>
+                                <li><span class="subject-code">DCE 206</span><span class="subject-name">Material Science and Technology</span></li>
+                                <li><span class="subject-code">DCE 207</span><span class="subject-name">Plant Utilities</span></li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Diploma in Instrumentation Engineering -->
+            <div class="course-category" id="instrumentation-diploma">
+                <div class="category-title">
+                    <h2>Diploma in Instrumentation Engineering</h2>
+                    <div class="category-info">
+                        <div class="eligibility">Eligibility: 12th PCM</div>
+                        <div class="duration">Duration: Regular 3 Years</div>
+                    </div>
+                </div>
+                
+                <div class="semesters-grid">
+                    <div class="semester-card">
+                        <div class="semester-header">Semester I</div>
+                        <div class="semester-content">
+                            <ul class="subject-list">
+                                <li><span class="subject-code">DIE 101</span><span class="subject-name">Communication in English</span></li>
+                                <li><span class="subject-code">DIE 102</span><span class="subject-name">Chemistry-I</span></li>
+                                <li><span class="subject-code">DIE 103</span><span class="subject-name">Mathematics-I</span></li>
+                                <li><span class="subject-code">DIE 104</span><span class="subject-name">Engineering Drawing Lab</span></li>
+                                <li><span class="subject-code">DIE 105</span><span class="subject-name">Telemetry</span></li>
+                                <li><span class="subject-code">DIE 106</span><span class="subject-name">Workshop Practice</span></li>
+                                <li><span class="subject-code">DIE 107</span><span class="subject-name">Applied Physics</span></li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- B.Tech Civil Engineering -->
+            <div class="course-category" id="civil-btech">
+                <div class="category-title">
+                    <h2>B.Tech (Civil Engineering)</h2>
+                    <div class="category-info">
+                        <div class="eligibility">Eligibility: 10th/SSC</div>
+                        <div class="duration">Duration: Regular 3 Years</div>
+                    </div>
+                </div>
+                
+                <div class="course-description">
+                    <p>The B. Tech in Civil Engineering is a best engineering course for those who are passionate about topics such as infrastructure, construction and urban development. The program offers courses in structural design, highway engineering, and water resources, to prepare students with the skills they need to pursue careers in construction, planning, and government projects.</p>
+                </div>
+                
+                <div class="semesters-grid">
+                    <div class="semester-card">
+                        <div class="semester-header">Semester I</div>
+                        <div class="semester-content">
+                            <ul class="subject-list">
+                                <li><span class="subject-code">BTCE 101</span><span class="subject-name">English for communication</span></li>
+                                <li><span class="subject-code">BTCE 102</span><span class="subject-name">Indian constitution & Ethics</span></li>
+                                <li><span class="subject-code">BTCE 103</span><span class="subject-name">Mathematics-I</span></li>
+                                <li><span class="subject-code">BTCE 104</span><span class="subject-name">Chemistry</span></li>
+                                <li><span class="subject-code">BTCE 105</span><span class="subject-name">Electrical Technology</span></li>
+                                <li><span class="subject-code">BTCE 106</span><span class="subject-name">Mechanics</span></li>
+                                <li><span class="subject-code">BTCE 107</span><span class="subject-name">Intro to Manufacturer Process</span></li>
+                                <li><span class="subject-code">BTCE 108</span><span class="subject-name">Chemistry Practical</span></li>
+                                <li><span class="subject-code">BTCE 109</span><span class="subject-name">Electrical Technology Practical</span></li>
+                            </ul>
+                        </div>
+                    </div>
+                    
+                    <div class="semester-card">
+                        <div class="semester-header">Semester II</div>
+                        <div class="semester-content">
+                            <ul class="subject-list">
+                                <li><span class="subject-code">BTCE 201</span><span class="subject-name">English</span></li>
+                                <li><span class="subject-code">BTCE 202</span><span class="subject-name">Environment Studies</span></li>
+                                <li><span class="subject-code">BTCE 203</span><span class="subject-name">Mathematics</span></li>
+                                <li><span class="subject-code">BTCE 204</span><span class="subject-name">Applied Physics</span></li>
+                                <li><span class="subject-code">BTCE 205</span><span class="subject-name">Fundamental of Computers</span></li>
+                                <li><span class="subject-code">BTCE 206</span><span class="subject-name">Basic Electronics</span></li>
+                                <li><span class="subject-code">BTCE 207</span><span class="subject-name">Engineering Drawing & Graphics</span></li>
+                                <li><span class="subject-code">BTCE 208</span><span class="subject-name">Applied Physics Practical-I</span></li>
+                                <li><span class="subject-code">BTCE 209</span><span class="subject-name">Basic Electronic Practicals-II</span></li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- B.Tech Chemical Engineering -->
+            <div class="course-category" id="chemical-btech">
+                <div class="category-title">
+                    <h2>B.Tech in Chemical Engineering</h2>
+                    <div class="category-info">
+                        <div class="eligibility">Eligibility: 12th PCM</div>
+                        <div class="duration">Duration: Regular 4 Years</div>
+                    </div>
+                </div>
+                
+                <div class="semesters-grid">
+                    <div class="semester-card">
+                        <div class="semester-header">Semester I</div>
+                        <div class="semester-content">
+                            <ul class="subject-list">
+                                <li><span class="subject-code">BTCE 101</span><span class="subject-name">Engineering Drawing</span></li>
+                                <li><span class="subject-code">BTCE 102</span><span class="subject-name">Electrical Sciences</span></li>
+                                <li><span class="subject-code">BTCE 103</span><span class="subject-name">Communicative English for Engineers</span></li>
+                                <li><span class="subject-code">BTCE 104</span><span class="subject-name">Mathematics-I</span></li>
+                                <li><span class="subject-code">BTCE 105</span><span class="subject-name">Workshop-I</span></li>
+                                <li><span class="subject-code">BTCE 106</span><span class="subject-name">Physics-I</span></li>
+                                <li><span class="subject-code">BTCE 107</span><span class="subject-name">Physics Laboratory</span></li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- B.Tech Electrical Engineering -->
+            <div class="course-category" id="electrical-btech">
+                <div class="category-title">
+                    <h2>B.Tech (Electrical Engineering)</h2>
+                    <div class="category-info">
+                        <div class="eligibility">Eligibility: XIIth</div>
+                        <div class="duration">Duration: Regular 4 Years</div>
+                    </div>
+                </div>
+                
+                <div class="course-description">
+                    <p>B.Tech in Electrical Engineering is a 4-year degree focused on electricity, electronics, and electromagnetism. Students gain strong knowledge in circuits, power systems, control systems, and renewable energy. With rising demand in power, telecom, and automation industries, it stands out as one of the best engineering courses, offering great career and research opportunities in the energy sector.</p>
+                </div>
+                
+                <div class="semesters-grid">
+                    <div class="semester-card">
+                        <div class="semester-header">Semester I</div>
+                        <div class="semester-content">
+                            <ul class="subject-list">
+                                <li><span class="subject-code">BTEE101</span><span class="subject-name">English for Communication</span></li>
+                                <li><span class="subject-code">BTEE102</span><span class="subject-name">Indian Constitution & Ethics</span></li>
+                                <li><span class="subject-code">BTEE103</span><span class="subject-name">Mathematics-I</span></li>
+                                <li><span class="subject-code">BTEE104</span><span class="subject-name">Chemistry</span></li>
+                                <li><span class="subject-code">BTEE105</span><span class="subject-name">Electrical Technology</span></li>
+                                <li><span class="subject-code">BTEE106</span><span class="subject-name">Mechanics</span></li>
+                                <li><span class="subject-code">BTEE107</span><span class="subject-name">Intro to Manufacturing Process</span></li>
+                                <li><span class="subject-code">BTEE108</span><span class="subject-name">Chemistry Practical</span></li>
+                                <li><span class="subject-code">BTEE109</span><span class="subject-name">Electrical Technology Practical</span></li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- B.Tech Automobile Engineering -->
+            <div class="course-category" id="automobile-btech">
+                <div class="category-title">
+                    <h2>B.Tech (Automobile Engineering)</h2>
+                    <div class="category-info">
+                        <div class="eligibility">Eligibility: 10+2/Equivalent</div>
+                        <div class="duration">Duration: Regular 4 Years</div>
+                    </div>
+                </div>
+                
+                <div class="course-description">
+                    <p>The B. Tech in Automobile program is the best engineering course for students who are dedicated to constructing, designing, developing, and maintaining vehicles. This programming includes study in automotive technology, engine design, and more, while also preparing students for stable, high-demand careers in the automotive and transportation industry.</p>
+                </div>
+            </div>
+            
+            <!-- B.Tech Electronics & Communication -->
+            <div class="course-category" id="electronics-btech">
+                <div class="category-title">
+                    <h2>B.Tech (Electronics & Communication)</h2>
+                    <div class="category-info">
+                        <div class="eligibility">Eligibility: 10+2/Equivalent</div>
+                        <div class="duration">Duration: Regular 4 Years</div>
+                    </div>
+                </div>
+                
+                <div class="course-description">
+                    <p>The B.Tech programme in Electronics and Communication Engineering is one of the best engineering courses for those who are passionate about technology, communication systems and electronic devices. The four-year undergraduate course integrates theoretical and practical experience in a range of fields such as, digital electronics, microprocessors, signal processing, embedded systems and wireless communication. With the rapid advancement in but not limited to IoT robotics, 5G and AI, Electronics and Communication Engineering affords ample job opportunities in both the private and public sectors. Graduates can secure roles as design engineers, communicators, network engineers or further in their careers by undertaking higher studies and research. Select. This is an excellent path for individuals seeking a future-proof career in one of the most dynamic and desirable engineering faculties available.</p>
+                </div>
+            </div>
+            
+            <!-- B.Tech Computer Science -->
+            <div class="course-category" id="computer-btech">
+                <div class="category-title">
+                    <h2>B.Tech (Computer Science)</h2>
+                    <div class="category-info">
+                        <div class="eligibility">Eligibility: 10+2/Equivalent</div>
+                        <div class="duration">Duration: Regular 4 Years</div>
+                    </div>
+                </div>
+                
+                <div class="course-description">
+                    <p>B.Tech in Computer Science is a 4-year course ideal for students aiming for a career in tech. It covers programming, AI, machine learning, data structures, and web technologies. Known as one of the best engineering courses, it offers high-paying job opportunities and a strong foundation for higher studies or entrepreneurship in the digital world.</p>
+                </div>
+            </div>
+            
+            <!-- Back to Home Button -->
+            <div class="back-to-home">
+                <a href="index.html" class="home-button">
+                    <i class="fas fa-home"></i> Back to Home Page
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer" id="contact">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-column">
+                    <h3>WIMT Institute</h3>
+                    <p>Wintech Institute of Management & Technology (WIMT) is committed to delivering high-quality education through innovative learning techniques and industry-relevant programs.</p>
+               
+                </div>
+                <div class="footer-column">
+                    <h3>Engineering Courses</h3>
+                    <a href="#civil-diploma" class="menu-link">Diploma in Civil Engineering</a>
+                    <a href="#electrical-diploma" class="menu-link">Diploma in Electrical Engineering</a>
+                    <a href="#electronics-diploma" class="menu-link">Diploma in Electronics Engineering</a>
+                    <a href="#automobile-diploma" class="menu-link">Diploma in Automobile Engineering</a>
+                    <a href="#chemical-diploma" class="menu-link">Diploma in Chemical Engineering</a>
+                </div>
+                <div class="footer-column">
+                    <h3>Contact Info</h3>
+                    <p><i class="fas fa-map-marker-alt"></i> WZ-1, Central Market Budela, Vikaspuri, New Delhi - 110018</p>
+                    <p><i class="fas fa-phone"></i> +91 9958430389</p>
+                    <p><i class="fas fa-envelope"></i> Info@wimt.org</p>
+                    <p><i class="fas fa-globe"></i> www.wimt.org</p>
+                </div>
+                <div class="footer-column">
+                    <h3>Approvals</h3>
+                    <p>U.G.C Approved Universities</p>
+                    <p>NCT Approved Institute</p>
+                    <p>Various Certified Courses</p>
+                    <p>Industry Recognized Programs</p>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>© Copyright 1990 Wintech Institute of Management & Technology. All Rights Reserved.</p>
+                <p>Designed for Your Success. | Development by DigiSe</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // ==================== MOBILE MENU FUNCTIONALITY ====================
+        const menuToggle = document.getElementById('menuToggle');
+        const mainNav = document.getElementById('mainNav');
+        const menuOverlay = document.getElementById('menuOverlay');
+        let isMenuOpen = false;
+        
+        // Toggle menu function
+        function toggleMenu() {
+            isMenuOpen = !isMenuOpen;
+            mainNav.classList.toggle('active');
+            menuOverlay.classList.toggle('active');
+            
+            if (isMenuOpen) {
+                menuToggle.innerHTML = '<i class="fas fa-times"></i>';
+                document.body.style.overflow = 'hidden';
+            } else {
+                menuToggle.innerHTML = '<i class="fas fa-bars"></i>';
+                document.body.style.overflow = 'auto';
+            }
+        }
+        
+        // Menu toggle click event
+        menuToggle.addEventListener('click', function(e) {
+            e.stopPropagation();
+            toggleMenu();
+        });
+        
+        // Close menu when clicking overlay
+        menuOverlay.addEventListener('click', function() {
+            if (isMenuOpen) {
+                toggleMenu();
+            }
+        });
+        
+        // Close menu when clicking a link
+        document.querySelectorAll('.main-nav a').forEach(link => {
+            link.addEventListener('click', function() {
+                if (window.innerWidth <= 767 && isMenuOpen) {
+                    toggleMenu();
+                }
+            });
+        });
+        
+        // Mobile dropdown toggle
+        document.querySelectorAll('.has-dropdown > a').forEach(dropdownToggle => {
+            dropdownToggle.addEventListener('click', function(e) {
+                if (window.innerWidth <= 767) {
+                    e.preventDefault();
+                    const dropdown = this.nextElementSibling;
+                    const isActive = dropdown.classList.contains('active');
+                    
+                    // Close all other dropdowns
+                    document.querySelectorAll('.dropdown.active').forEach(activeDropdown => {
+                        if (activeDropdown !== dropdown) {
+                            activeDropdown.classList.remove('active');
+                        }
+                    });
+                    
+                    // Toggle current dropdown
+                    dropdown.classList.toggle('active');
+                }
+            });
+        });
+        
+        // Close dropdowns when clicking outside on mobile
+        document.addEventListener('click', function(e) {
+            if (window.innerWidth <= 767 && isMenuOpen) {
+                if (!mainNav.contains(e.target) && !menuToggle.contains(e.target)) {
+                    toggleMenu();
+                }
+            }
+        });
+        
+        // Handle window resize
+        window.addEventListener('resize', function() {
+            if (window.innerWidth > 767 && isMenuOpen) {
+                // Reset menu state on desktop
+                toggleMenu();
+            }
+        });
+        
+        // ==================== SMOOTH SCROLLING ====================
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function(e) {
+                e.preventDefault();
+                
+                const targetId = this.getAttribute('href');
+                if(targetId === '#') return;
+                
+                const targetElement = document.querySelector(targetId);
+                if(targetElement) {
+                    const offset = window.innerWidth <= 767 ? 80 : 100;
+                    window.scrollTo({
+                        top: targetElement.offsetTop - offset,
+                        behavior: 'smooth'
+                    });
+                }
+            });
+        });
+        
+        // ==================== INITIALIZATION ====================
+        document.addEventListener('DOMContentLoaded', function() {
+            // Set active menu item for engineering page
+            document.querySelectorAll('.menu-link').forEach(link => {
+                const linkHref = link.getAttribute('href');
+                if (linkHref === 'engineering.html') {
+                    link.classList.add('active');
+                } else {
+                    link.classList.remove('active');
+                }
+            });
+            
+            console.log('Engineering courses page loaded successfully');
+        });
+    </script>
+</body>
+</html>

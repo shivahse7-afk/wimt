@@ -1,0 +1,1365 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Digital Marketing Courses - WIMT | Wintech Institute of Management & Technology</title>
+    <style>
+        /* Reset and base styles */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: Arial, sans-serif;
+        }
+        
+        body {
+            color: #333;
+            line-height: 1.5;
+            background-color: #f5f5f5;
+        }
+        
+        a {
+            text-decoration: none;
+            color: inherit;
+        }
+        
+        /* Header Styles */
+        .header-top {
+            background-color: #1a237e;
+            color: white;
+            padding: 8px 0;
+            font-size: 14px;
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 15px;
+        }
+        
+        .header-top .container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        
+        .contact-info span {
+            margin-right: 20px;
+        }
+        
+        .social-icons a {
+            margin-left: 10px;
+            color: white;
+        }
+        
+        /* Main Header */
+        .main-header {
+            background-color: white;
+            padding: 15px 0;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+            position: relative;
+        }
+        
+        .main-header .container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        
+        .logo {
+            display: flex;
+            align-items: center;
+        }
+        
+        .logo-img {
+            background: url("images/wmit logo.png") center/contain no-repeat;
+            width: 80px;
+            height: 80px;
+            min-width: 80px;
+            color: white;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: bold;
+            margin-right: 15px;
+            border-radius: 5px;
+        }
+        
+        .logo-text h1 {
+            font-size: 20px;
+            color: #1a237e;
+            line-height: 1.2;
+        }
+        
+        .logo-text p {
+            font-size: 12px;
+            color: #666;
+        }
+        
+        /* Menu Button */
+        .menu-toggle {
+            display: none;
+            background: none;
+            border: none;
+            font-size: 24px;
+            color: #1a237e;
+            cursor: pointer;
+            padding: 5px;
+            z-index: 1001;
+        }
+        
+        /* Main Navigation */
+        .main-nav {
+            position: relative;
+        }
+        
+        .main-nav > ul {
+            display: flex;
+            list-style: none;
+        }
+        
+        .main-nav > ul > li {
+            position: relative;
+            margin-left: 15px;
+        }
+        
+        .main-nav > ul > li > a {
+            color: #333;
+            font-weight: 500;
+            font-size: 14px;
+            transition: color 0.3s;
+            padding: 8px 10px;
+            display: block;
+            cursor: pointer;
+            white-space: nowrap;
+        }
+        
+        .main-nav > ul > li > a:hover {
+            color: #1a237e;
+            background-color: #f0f0f0;
+            border-radius: 4px;
+        }
+        
+        .main-nav > ul > li > a.active {
+            color: #1a237e;
+            font-weight: 600;
+            background-color: #e8eaf6;
+            border-radius: 4px;
+        }
+        
+        /* Dropdown Menus */
+        .dropdown {
+            position: absolute;
+            top: 100%;
+            left: 0;
+            background-color: white;
+            min-width: 200px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+            border-radius: 5px;
+            opacity: 0;
+            visibility: hidden;
+            transform: translateY(10px);
+            transition: all 0.3s ease;
+            z-index: 1000;
+        }
+        
+        .main-nav > ul > li:hover .dropdown {
+            opacity: 1;
+            visibility: visible;
+            transform: translateY(0);
+        }
+        
+        .dropdown li {
+            list-style: none;
+            border-bottom: 1px solid #f0f0f0;
+        }
+        
+        .dropdown li:last-child {
+            border-bottom: none;
+        }
+        
+        .dropdown a {
+            padding: 10px 15px;
+            display: block;
+            color: #333;
+            transition: all 0.3s;
+            cursor: pointer;
+            font-size: 13px;
+        }
+        
+        .dropdown a:hover {
+            background-color: #e3f2fd;
+            color: #1a237e;
+            padding-left: 20px;
+        }
+        
+        /* Arrow indicators */
+        .has-dropdown > a::after {
+            content: "▾";
+            margin-left: 5px;
+            font-size: 12px;
+        }
+        
+        /* Digital Marketing Hero Section */
+        .digital-hero {
+            background: linear-gradient(rgba(26, 35, 126, 0.9), rgba(26, 35, 126, 0.9));
+            color: white;
+            padding: 60px 0;
+            text-align: center;
+        }
+        
+        .digital-hero h1 {
+            font-size: 32px;
+            margin-bottom: 20px;
+            font-weight: bold;
+        }
+        
+        .digital-hero p {
+            font-size: 16px;
+            max-width: 900px;
+            margin: 0 auto 30px;
+            line-height: 1.6;
+        }
+        
+        .cta-button {
+            display: inline-block;
+            background-color: #e53935;
+            color: white;
+            padding: 12px 30px;
+            border-radius: 4px;
+            font-weight: bold;
+            font-size: 16px;
+            transition: background-color 0.3s;
+            border: none;
+            cursor: pointer;
+        }
+        
+        .cta-button:hover {
+            background-color: #c62828;
+        }
+        
+        /* Features Section */
+        .features-section {
+            padding: 60px 0;
+            background-color: white;
+        }
+        
+        .section-title {
+            margin-bottom: 40px;
+            padding-bottom: 15px;
+            border-bottom: 2px solid #1a237e;
+            color: #1a237e;
+            font-size: 28px;
+            text-align: center;
+        }
+        
+        .features-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 30px;
+            margin-bottom: 50px;
+        }
+        
+        .feature-card {
+            background: #f9f9f9;
+            padding: 25px;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.08);
+            text-align: center;
+            transition: transform 0.3s;
+            border-top: 4px solid #1a237e;
+        }
+        
+        .feature-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 30px rgba(0,0,0,0.15);
+        }
+        
+        .feature-icon {
+            font-size: 36px;
+            color: #1a237e;
+            margin-bottom: 20px;
+            height: 70px;
+            width: 70px;
+            line-height: 70px;
+            background: #e8eaf6;
+            border-radius: 50%;
+            margin: 0 auto 20px;
+        }
+        
+        .feature-card h3 {
+            color: #1a237e;
+            font-size: 18px;
+            margin-bottom: 15px;
+        }
+        
+        .feature-card p {
+            color: #555;
+            line-height: 1.6;
+            font-size: 15px;
+        }
+        
+        /* Courses Section */
+        .courses-section {
+            padding: 60px 0;
+            background-color: #f0f5ff;
+        }
+        
+        .courses-tabs {
+            display: flex;
+            justify-content: center;
+            margin-bottom: 40px;
+            border-bottom: 2px solid #e0e0e0;
+            flex-wrap: wrap;
+        }
+        
+        .tab-btn {
+            background: none;
+            border: none;
+            padding: 12px 30px;
+            font-size: 16px;
+            font-weight: 600;
+            color: #666;
+            cursor: pointer;
+            position: relative;
+            transition: all 0.3s;
+            margin: 5px;
+        }
+        
+        .tab-btn.active {
+            color: #1a237e;
+        }
+        
+        .tab-btn.active:after {
+            content: '';
+            position: absolute;
+            bottom: -2px;
+            left: 0;
+            width: 100%;
+            height: 4px;
+            background-color: #1a237e;
+        }
+        
+        .course-content {
+            display: none;
+            background: white;
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+        }
+        
+        .course-content.active {
+            display: block;
+        }
+        
+        .course-header {
+            text-align: center;
+            margin-bottom: 40px;
+            padding-bottom: 20px;
+            border-bottom: 2px solid #e0e0e0;
+        }
+        
+        .course-header h3 {
+            color: #1a237e;
+            font-size: 24px;
+            margin-bottom: 10px;
+        }
+        
+        .course-header p {
+            color: #666;
+            font-size: 16px;
+        }
+        
+        .course-modules {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 25px;
+        }
+        
+        .module-card {
+            background: #f9f9f9;
+            padding: 20px;
+            border-radius: 8px;
+            border-left: 4px solid #1a237e;
+        }
+        
+        .module-card h4 {
+            color: #1a237e;
+            font-size: 18px;
+            margin-bottom: 15px;
+            padding-bottom: 10px;
+            border-bottom: 1px solid #e0e0e0;
+        }
+        
+        .module-list {
+            list-style: none;
+        }
+        
+        .module-list li {
+            padding: 8px 0;
+            color: #555;
+            display: flex;
+            align-items: center;
+            font-size: 14px;
+        }
+        
+        .module-list li:before {
+            content: "✓";
+            color: #4caf50;
+            font-weight: bold;
+            margin-right: 10px;
+            font-size: 14px;
+        }
+        
+        /* Benefits Section */
+        .benefits-section {
+            padding: 60px 0;
+            background-color: white;
+        }
+        
+        .benefits-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 30px;
+        }
+        
+        .benefit-card {
+            display: flex;
+            gap: 20px;
+            align-items: flex-start;
+        }
+        
+        .benefit-icon {
+            background-color: #e8eaf6;
+            color: #1a237e;
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-shrink: 0;
+            font-size: 20px;
+        }
+        
+        .benefit-text h3 {
+            color: #1a237e;
+            font-size: 18px;
+            margin-bottom: 10px;
+        }
+        
+        .benefit-text p {
+            color: #555;
+            line-height: 1.6;
+            font-size: 15px;
+        }
+        
+        /* CTA Section */
+        .cta-section {
+            background: linear-gradient(135deg, #1a237e 0%, #283593 100%);
+            color: white;
+            padding: 60px 0;
+            text-align: center;
+        }
+        
+        .cta-section h2 {
+            font-size: 28px;
+            margin-bottom: 20px;
+        }
+        
+        .cta-section p {
+            font-size: 16px;
+            max-width: 800px;
+            margin: 0 auto 40px;
+            opacity: 0.9;
+        }
+        
+        .cta-buttons {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            flex-wrap: wrap;
+        }
+        
+        .cta-btn {
+            padding: 12px 30px;
+            border-radius: 4px;
+            font-weight: 600;
+            font-size: 15px;
+            cursor: pointer;
+            transition: all 0.3s;
+            border: none;
+        }
+        
+        .cta-btn.primary {
+            background-color: #e53935;
+            color: white;
+        }
+        
+        .cta-btn.secondary {
+            background-color: transparent;
+            color: white;
+            border: 2px solid white;
+        }
+        
+        .cta-btn:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+        }
+        
+        .cta-btn.primary:hover {
+            background-color: #c62828;
+        }
+        
+        .cta-btn.secondary:hover {
+            background-color: rgba(255, 255, 255, 0.1);
+        }
+        
+        /* Footer */
+        .footer {
+            background-color: #1a237e;
+            color: white;
+            padding: 50px 0 20px;
+        }
+        
+        .footer-content {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 30px;
+            margin-bottom: 40px;
+        }
+        
+        .footer-column h3 {
+            font-size: 16px;
+            margin-bottom: 20px;
+            position: relative;
+            padding-bottom: 10px;
+        }
+        
+        .footer-column h3:after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 40px;
+            height: 2px;
+            background-color: #e53935;
+        }
+        
+        .footer-column p {
+            margin-bottom: 15px;
+            font-size: 13px;
+            opacity: 0.8;
+        }
+        
+        .footer-column a {
+            display: block;
+            margin-bottom: 10px;
+            font-size: 13px;
+            opacity: 0.8;
+            transition: opacity 0.3s;
+            cursor: pointer;
+        }
+        
+        .footer-column a:hover {
+            opacity: 1;
+        }
+        
+        .footer-bottom {
+            text-align: center;
+            padding-top: 20px;
+            border-top: 1px solid rgba(255,255,255,0.1);
+            font-size: 13px;
+            opacity: 0.7;
+        }
+        
+        /* Responsive Styles */
+        
+        /* Tablet */
+        @media (min-width: 768px) {
+            .digital-hero h1 {
+                font-size: 36px;
+            }
+            
+            .digital-hero p {
+                font-size: 17px;
+            }
+            
+            .section-title {
+                font-size: 32px;
+            }
+            
+            .logo-text h1 {
+                font-size: 22px;
+            }
+            
+            .main-nav > ul > li {
+                margin-left: 20px;
+            }
+            
+            .main-nav > ul > li > a {
+                font-size: 15px;
+            }
+        }
+        
+        /* Desktop */
+        @media (min-width: 992px) {
+            .digital-hero {
+                padding: 80px 0;
+            }
+            
+            .digital-hero h1 {
+                font-size: 42px;
+            }
+            
+            .digital-hero p {
+                font-size: 18px;
+            }
+            
+            .features-section, .courses-section, .benefits-section, .cta-section {
+                padding: 80px 0;
+            }
+            
+            .section-title {
+                font-size: 36px;
+            }
+            
+            .logo-text h1 {
+                font-size: 24px;
+            }
+            
+            .main-nav > ul > li {
+                margin-left: 25px;
+            }
+        }
+        
+        /* Mobile View */
+        @media (max-width: 767px) {
+            .header-top .container {
+                flex-direction: column;
+                text-align: center;
+                gap: 8px;
+            }
+            
+            .contact-info span {
+                display: block;
+                margin-right: 0;
+                margin-bottom: 5px;
+            }
+            
+            .contact-info span:last-child {
+                margin-bottom: 0;
+            }
+            
+            .logo {
+                max-width: 100%;
+                margin-bottom: 10px;
+                justify-content: center;
+                text-align: center;
+            }
+            
+            .logo-text h1 {
+                font-size: 18px;
+            }
+            
+            .logo-img {
+                margin-right: 10px;
+            }
+            
+            .menu-toggle {
+                display: flex;
+                position: absolute;
+                top: 50%;
+                right: 15px;
+                transform: translateY(-50%);
+                z-index: 1001;
+            }
+            
+            .main-nav {
+                position: fixed;
+                top: 0;
+                left: -100%;
+                width: 80%;
+                max-width: 300px;
+                height: 100vh;
+                background-color: white;
+                box-shadow: 0 0 15px rgba(0,0,0,0.1);
+                overflow-y: auto;
+                transition: left 0.3s ease;
+                z-index: 1000;
+                padding-top: 60px;
+            }
+            
+            .main-nav.active {
+                left: 0;
+            }
+            
+            .main-nav > ul {
+                flex-direction: column;
+                align-items: stretch;
+                padding: 0;
+            }
+            
+            .main-nav > ul > li {
+                margin: 0;
+                border-bottom: 1px solid #f0f0f0;
+            }
+            
+            .main-nav > ul > li > a {
+                padding: 15px 20px;
+                font-size: 16px;
+                border-bottom: none;
+            }
+            
+            .dropdown {
+                position: static;
+                opacity: 1;
+                visibility: visible;
+                transform: none;
+                box-shadow: none;
+                background-color: #f9f9f9;
+                max-height: 0;
+                overflow: hidden;
+                transition: max-height 0.3s ease;
+                min-width: auto;
+                border-radius: 0;
+            }
+            
+            .dropdown.active {
+                max-height: 500px;
+            }
+            
+            .dropdown a {
+                padding-left: 40px;
+                font-size: 14px;
+            }
+            
+            .dropdown .dropdown {
+                position: static;
+                margin-left: 0;
+            }
+            
+            .dropdown .dropdown a {
+                padding-left: 60px;
+            }
+            
+            .has-dropdown > a::after {
+                float: right;
+            }
+            
+            .digital-hero {
+                padding: 40px 0;
+            }
+            
+            .digital-hero h1 {
+                font-size: 28px;
+            }
+            
+            .digital-hero p {
+                font-size: 15px;
+                padding: 0 10px;
+            }
+            
+            .features-section, .courses-section, .benefits-section, .cta-section {
+                padding: 40px 0;
+            }
+            
+            .section-title {
+                font-size: 24px;
+            }
+            
+            .features-grid {
+                grid-template-columns: 1fr;
+                gap: 20px;
+                padding: 0 10px;
+            }
+            
+            .courses-tabs {
+                flex-direction: column;
+                align-items: center;
+            }
+            
+            .tab-btn {
+                width: 100%;
+                max-width: 300px;
+                margin-bottom: 5px;
+            }
+            
+            .course-content {
+                padding: 20px;
+                margin: 0 10px;
+            }
+            
+            .course-header h3 {
+                font-size: 22px;
+            }
+            
+            .course-modules {
+                grid-template-columns: 1fr;
+                gap: 20px;
+            }
+            
+            .benefits-grid {
+                grid-template-columns: 1fr;
+                gap: 25px;
+                padding: 0 10px;
+            }
+            
+            .benefit-card {
+                flex-direction: column;
+                align-items: center;
+                text-align: center;
+            }
+            
+            .benefit-icon {
+                margin-bottom: 15px;
+            }
+            
+            .cta-section h2 {
+                font-size: 24px;
+            }
+            
+            .cta-section p {
+                font-size: 15px;
+                padding: 0 15px;
+            }
+            
+            .cta-buttons {
+                flex-direction: column;
+                align-items: center;
+            }
+            
+            .cta-btn {
+                width: 100%;
+                max-width: 300px;
+            }
+            
+            .footer-content {
+                grid-template-columns: 1fr;
+                gap: 20px;
+                padding: 0 15px;
+            }
+            
+            /* Overlay when menu is open */
+            .menu-overlay {
+                display: none;
+                position: fixed;
+                top: 0;
+                left: 0;
+                width: 100%;
+                height: 100%;
+                background-color: rgba(0,0,0,0.5);
+                z-index: 999;
+            }
+            
+            .menu-overlay.active {
+                display: block;
+            }
+        }
+        
+        /* Extra Small Mobile */
+        @media (max-width: 480px) {
+            .digital-hero h1 {
+                font-size: 24px;
+            }
+            
+            .section-title {
+                font-size: 22px;
+            }
+            
+            .logo-text h1 {
+                font-size: 16px;
+            }
+            
+            .logo-img {
+                width: 50px;
+                height: 50px;
+                min-width: 50px;
+                font-size: 18px;
+            }
+            
+            .cta-button, .cta-btn {
+                padding: 10px 20px;
+                font-size: 14px;
+            }
+            
+            .feature-icon {
+                height: 60px;
+                width: 60px;
+                line-height: 60px;
+                font-size: 28px;
+            }
+            
+            .benefit-icon {
+                width: 45px;
+                height: 45px;
+                font-size: 18px;
+            }
+        }
+    </style>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+    <!-- Header Top -->
+    <div class="header-top">
+        <div class="container">
+            <div class="contact-info">
+                <span><i class="fas fa-phone"></i> +91 9958430389</span>
+                <span><i class="fas fa-envelope"></i> info@wimt.org</span>
+            </div>
+            <div class="social-icons">
+                <a href="#"><i class="fab fa-facebook-f"></i></a>
+                <a href="#"><i class="fab fa-twitter"></i></a>
+                <a href="#"><i class="fab fa-linkedin-in"></i></a>
+                <a href="#"><i class="fab fa-instagram"></i></a>
+            </div>
+        </div>
+    </div>
+
+    <!-- Main Header -->
+    <header class="main-header">
+        <div class="container">
+            <div class="logo">
+                <div class="logo-img"></div>
+                <div class="logo-text">
+                    <h1>Wintech Institute of Management & Technology</h1>
+                    <p>Best Institute for Online Courses</p>
+                </div>
+            </div>
+            
+            <!-- Mobile Menu Toggle Button -->
+            <button class="menu-toggle" id="menuToggle" aria-label="Toggle menu">
+                <i class="fas fa-bars"></i>
+            </button>
+            
+            <nav class="main-nav" id="mainNav">
+                <ul>
+                    <li><a href="index.html" class="menu-link">Home</a></li>
+                    
+                    <li class="has-dropdown">
+                        <a href="#" class="menu-link">Courses</a>
+                        <ul class="dropdown">
+                            <li><a href="engineering.html" class="menu-link">Engineering</a></li>
+                            <li><a href="manegement course.html" class="menu-link">Management</a></li>
+                            <li><a href="iti course.html" class="menu-link">ITI</a></li>
+                            <li><a href="hotel management.html" class="menu-link">Hotel Management</a></li>
+                            <li><a href="computer course.html" class="menu-link">Computer Application Courses</a></li>
+                            <li><a href="degital marketing course.html" class="menu-link active">Digital Marketing Courses</a></li>
+                        </ul>
+                    </li>
+                    
+                    <li class="has-dropdown">
+                        <a href="#" class="menu-link">Examination</a>
+                        <ul class="dropdown">
+                            <li><a href="form.html" class="menu-link">Other Forms</a></li>
+                            <li><a href="result.html" class="menu-link">Results</a></li>
+                            <li><a href="application.html" class="menu-link">Application Form</a></li>
+                            <li><a href="#" class="menu-link">Fees Structure</a></li>
+                        </ul>
+                    </li>
+                    
+                    <li><a href="contect us.html" class="menu-link">Contact</a></li>
+                    <li><a href="verification.html" class="menu-link">Verification</a></li>
+                
+                </ul>
+            </nav>
+            
+            <!-- Mobile Menu Overlay -->
+            <div class="menu-overlay" id="menuOverlay"></div>
+        </div>
+    </header>
+
+    <!-- Digital Marketing Hero Section -->
+    <section class="digital-hero">
+        <div class="container">
+            <h1>Start Your Career in Digital Marketing</h1>
+            <p>In today's fast-paced digital world, businesses cannot survive without a strong online presence. From social media campaigns to search engine rankings, the demand for skilled digital marketers is higher than ever. Our Digital Marketing courses are designed to equip you with practical skills, hands-on experience, and industry insights to excel in this competitive field. Whether you are a beginner, a professional, or an entrepreneur, we have the perfect course for you.</p>
+            <button class="cta-button">CONTACT US</button>
+        </div>
+    </section>
+
+    <!-- Features Section -->
+    <section class="features-section">
+        <div class="container">
+            <h2 class="section-title">Why Choose Our Digital Marketing Courses?</h2>
+            
+            <div class="features-grid">
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <i class="fas fa-chalkboard-teacher"></i>
+                    </div>
+                    <h3>Learn from Industry Professionals</h3>
+                    <p>Learn from industry professionals with years of experience in digital marketing and online business strategies.</p>
+                </div>
+                
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <i class="fas fa-briefcase"></i>
+                    </div>
+                    <h3>Real-World Projects & Case Studies</h3>
+                    <p>Real-world projects and case studies to apply your learning in practical scenarios and build your portfolio.</p>
+                </div>
+                
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <i class="fas fa-graduation-cap"></i>
+                    </div>
+                    <h3>Comprehensive Learning</h3>
+                    <p>Learn every aspect of digital marketing, from basics to advanced strategies for business growth.</p>
+                </div>
+                
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <i class="fas fa-handshake"></i>
+                    </div>
+                    <h3>Internship & Job Support</h3>
+                    <p>Support for internships and job placements with top companies in the digital marketing industry.</p>
+                </div>
+                
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <i class="fas fa-certificate"></i>
+                    </div>
+                    <h3>Flexible Course Options</h3>
+                    <p>Choose between a 1-year in-depth diploma or a 6-month fast-track certificate course based on your needs.</p>
+                </div>
+                
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <i class="fas fa-award"></i>
+                    </div>
+                    <h3>Recognized Certificates</h3>
+                    <p>Earn recognized certificates that boost your career opportunities and credibility in the job market.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Courses Section -->
+    <section class="courses-section" id="digital-marketing">
+        <div class="container">
+            <h2 class="section-title">Our Digital Marketing Courses</h2>
+            
+            <div class="courses-tabs">
+                <button class="tab-btn active" data-tab="diploma">1 Year Diploma</button>
+                <button class="tab-btn" data-tab="certificate">6 Month Certificate</button>
+            </div>
+            
+            <!-- 1 Year Diploma Course -->
+            <div class="course-content active" id="diploma">
+                <div class="course-header">
+                    <h3>1 Year Diploma in Digital Marketing</h3>
+                    <p>Comprehensive program covering all aspects of digital marketing with hands-on training</p>
+                </div>
+                
+                <div class="course-modules">
+                    <div class="module-card">
+                        <h4>Semester-I</h4>
+                        <ul class="module-list">
+                            <li>Search Engine Optimization (SEO)</li>
+                            <li>Social Media Marketing</li>
+                            <li>Content Marketing</li>
+                            <li>Email Marketing</li>
+                            <li>Mobile Marketing</li>
+                            <li>Introduction to Digital Marketing</li>
+                        </ul>
+                    </div>
+                    
+                    <div class="module-card">
+                        <h4>Semester-II</h4>
+                        <ul class="module-list">
+                            <li>Search Engine Marketing (SEM)</li>
+                            <li>Google Ads Certification</li>
+                            <li>Web Analytics (Google Analytics)</li>
+                            <li>Affiliate Marketing</li>
+                            <li>E-commerce Marketing</li>
+                            <li>Facebook Ads</li>
+                            <li>Google My Business (GMB)</li>
+                            <li>Google Tag Manager</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- 6 Month Certificate Course -->
+            <div class="course-content" id="certificate">
+                <div class="course-header">
+                    <h3>6 Month Certificate in Digital Marketing</h3>
+                    <p>Fast-track program covering essential digital marketing skills for quick career entry</p>
+                </div>
+                
+                <div class="course-modules">
+                    <div class="module-card">
+                        <h4>Core Modules</h4>
+                        <ul class="module-list">
+                            <li>Search Engine Optimization (SEO)</li>
+                            <li>Social Media Marketing</li>
+                            <li>Email Marketing</li>
+                            <li>Content Marketing</li>
+                            <li>Web Analytics</li>
+                            <li>Digital Strategy</li>
+                            <li>E-commerce Marketing</li>
+                        </ul>
+                    </div>
+                    
+                    <div class="module-card">
+                        <h4>Tools & Platforms Covered</h4>
+                        <ul class="module-list">
+                            <li>SEMrush for SEO & Competitor Analysis</li>
+                            <li>Ahrefs for Backlink Analysis</li>
+                            <li>HubSpot for CRM & Marketing Automation</li>
+                            <li>Canva for Graphic Design</li>
+                            <li>Google Ads for Paid Advertising</li>
+                            <li>Facebook Ads Manager</li>
+                            <li>Google Analytics for Tracking</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Benefits Section -->
+    <section class="benefits-section">
+        <div class="container">
+            <h2 class="section-title">Transform Your Career with Digital Marketing Skills</h2>
+            <p style="text-align: center; max-width: 800px; margin: 0 auto 30px; color: #666; font-size: 16px;">Digital marketing is not just a skill; it's the key to unlocking countless career opportunities. With our courses, you'll gain the knowledge, confidence, and practical experience to manage campaigns, drive traffic, generate leads, and achieve measurable results.</p>
+            
+            <div class="benefits-grid">
+                <div class="benefit-card">
+                    <div class="benefit-icon">
+                        <i class="fas fa-bullseye"></i>
+                    </div>
+                    <div class="benefit-text">
+                        <h3>Real Campaign Experience</h3>
+                        <p>Work on real campaigns to gain practical experience and build a strong portfolio that impresses employers.</p>
+                    </div>
+                </div>
+                
+                <div class="benefit-card">
+                    <div class="benefit-icon">
+                        <i class="fas fa-tools"></i>
+                    </div>
+                    <div class="benefit-text">
+                        <h3>Industry Standard Tools</h3>
+                        <p>Use SEMrush, Ahrefs, HubSpot, Canva, Google Ads & more industry-standard tools used by professionals.</p>
+                    </div>
+                </div>
+                
+                <div class="benefit-card">
+                    <div class="benefit-icon">
+                        <i class="fas fa-book-open"></i>
+                    </div>
+                    <div class="benefit-text">
+                        <h3>Market-Relevant Curriculum</h3>
+                        <p>Curriculum designed according to current market demands and latest industry trends.</p>
+                    </div>
+                </div>
+                
+                <div class="benefit-card">
+                    <div class="benefit-icon">
+                        <i class="fas fa-briefcase"></i>
+                    </div>
+                    <div class="benefit-text">
+                        <h3>Career Assistance</h3>
+                        <p>Internship & job placement assistance to kickstart your career in the digital marketing industry.</p>
+                    </div>
+                </div>
+                
+                <div class="benefit-card">
+                    <div class="benefit-icon">
+                        <i class="fas fa-network-wired"></i>
+                    </div>
+                    <div class="benefit-text">
+                        <h3>Professional Networking</h3>
+                        <p>Connect with industry professionals and fellow learners to expand your professional network.</p>
+                    </div>
+                </div>
+                
+                <div class="benefit-card">
+                    <div class="benefit-icon">
+                        <i class="fas fa-user-tie"></i>
+                    </div>
+                    <div class="benefit-text">
+                        <h3>Expert Guidance</h3>
+                        <p>Get one-on-one guidance from industry experts to enhance your career growth and development.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA Section -->
+    <section class="cta-section">
+        <div class="container">
+            <h2>Ready to Start Your Digital Marketing Journey?</h2>
+            <p>Join hundreds of successful graduates who have transformed their careers with our digital marketing courses. Whether you're looking to switch careers, upgrade your skills, or start your own business, we have the right course for you.</p>
+            <div class="cta-buttons">
+                <button class="cta-btn primary">Enroll Now</button>
+                <button class="cta-btn secondary">Download Course Brochure</button>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-column">
+                    <h3>WIMT Institute</h3>
+                    <p>Wintech Institute of Management & Technology (WIMT) is committed to delivering high-quality education through innovative learning techniques and industry-relevant programs.</p>
+                  
+                </div>
+             
+                <div class="footer-column">
+                    <h3>Contact Info</h3>
+                    <p><i class="fas fa-map-marker-alt"></i> A1/1, Central Market Budela, Vikaspuri, New Delhi - 110018</p>
+                    <p><i class="fas fa-phone"></i> +91 9958430389</p>
+                    <p><i class="fas fa-envelope"></i> Info@wimt.org</p>
+                    <p><i class="fas fa-globe"></i> www.wimt.org</p>
+                </div>
+                <div class="footer-column">
+                    <h3>Approvals</h3>
+                    <p>U.G.C Approved Universities</p>
+                    <p>NCT Approved Institute</p>
+                    <p>Various Certified Courses</p>
+                    <p>Industry Recognized Programs</p>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>© Copyright 1990 Wintech Institute of Management & Technology. All Rights Reserved.</p>
+                <p>Designed for Your Success. | Development by DigiSe</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // ==================== MOBILE MENU FUNCTIONALITY ====================
+        const menuToggle = document.getElementById('menuToggle');
+        const mainNav = document.getElementById('mainNav');
+        const menuOverlay = document.getElementById('menuOverlay');
+        let isMenuOpen = false;
+        
+        // Toggle menu function
+        function toggleMenu() {
+            isMenuOpen = !isMenuOpen;
+            mainNav.classList.toggle('active');
+            menuOverlay.classList.toggle('active');
+            
+            if (isMenuOpen) {
+                menuToggle.innerHTML = '<i class="fas fa-times"></i>';
+                document.body.style.overflow = 'hidden';
+            } else {
+                menuToggle.innerHTML = '<i class="fas fa-bars"></i>';
+                document.body.style.overflow = 'auto';
+            }
+        }
+        
+        // Menu toggle click event
+        menuToggle.addEventListener('click', function(e) {
+            e.stopPropagation();
+            toggleMenu();
+        });
+        
+        // Close menu when clicking overlay
+        menuOverlay.addEventListener('click', function() {
+            if (isMenuOpen) {
+                toggleMenu();
+            }
+        });
+        
+        // Close menu when clicking a link
+        document.querySelectorAll('.main-nav a').forEach(link => {
+            link.addEventListener('click', function() {
+                if (window.innerWidth <= 767 && isMenuOpen) {
+                    toggleMenu();
+                }
+            });
+        });
+        
+        // Mobile dropdown toggle
+        document.querySelectorAll('.has-dropdown > a').forEach(dropdownToggle => {
+            dropdownToggle.addEventListener('click', function(e) {
+                if (window.innerWidth <= 767) {
+                    e.preventDefault();
+                    const dropdown = this.nextElementSibling;
+                    const isActive = dropdown.classList.contains('active');
+                    
+                    // Close all other dropdowns
+                    document.querySelectorAll('.dropdown.active').forEach(activeDropdown => {
+                        if (activeDropdown !== dropdown) {
+                            activeDropdown.classList.remove('active');
+                        }
+                    });
+                    
+                    // Toggle current dropdown
+                    dropdown.classList.toggle('active');
+                }
+            });
+        });
+        
+        // Close dropdowns when clicking outside on mobile
+        document.addEventListener('click', function(e) {
+            if (window.innerWidth <= 767 && isMenuOpen) {
+                if (!mainNav.contains(e.target) && !menuToggle.contains(e.target)) {
+                    toggleMenu();
+                }
+            }
+        });
+        
+        // Handle window resize
+        window.addEventListener('resize', function() {
+            if (window.innerWidth > 767 && isMenuOpen) {
+                // Reset menu state on desktop
+                toggleMenu();
+            }
+        });
+        
+        // ==================== COURSE TABS FUNCTIONALITY ====================
+        const tabButtons = document.querySelectorAll('.tab-btn');
+        const courseContents = document.querySelectorAll('.course-content');
+        
+        tabButtons.forEach(button => {
+            button.addEventListener('click', () => {
+                // Remove active class from all buttons and contents
+                tabButtons.forEach(btn => btn.classList.remove('active'));
+                courseContents.forEach(content => content.classList.remove('active'));
+                
+                // Add active class to clicked button
+                button.classList.add('active');
+                
+                // Show corresponding content
+                const tabId = button.getAttribute('data-tab');
+                document.getElementById(tabId).classList.add('active');
+            });
+        });
+        
+        // ==================== CTA BUTTONS FUNCTIONALITY ====================
+        document.querySelectorAll('.cta-button, .cta-btn').forEach(button => {
+            button.addEventListener('click', function() {
+                if (this.classList.contains('primary') || this.classList.contains('cta-button')) {
+                    alert("Thank you for your interest! Our admissions team will contact you shortly.");
+                } else if (this.classList.contains('secondary')) {
+                    alert("Course brochure download will start shortly. Check your downloads folder.");
+                }
+            });
+        });
+        
+        // ==================== INITIALIZATION ====================
+        document.addEventListener('DOMContentLoaded', function() {
+            // Set active menu item for digital marketing page
+            document.querySelectorAll('.menu-link').forEach(link => {
+                const linkHref = link.getAttribute('href');
+                if (linkHref === 'degital marketing course.html') {
+                    link.classList.add('active');
+                } else {
+                    link.classList.remove('active');
+                }
+            });
+            
+            console.log('Digital marketing courses page loaded successfully');
+        });
+    </script>
+</body>
+</html>

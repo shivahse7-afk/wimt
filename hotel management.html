@@ -1,0 +1,1491 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hotel Management Courses - WIMT | Wintech Institute of Management & Technology</title>
+    <style>
+        /* Reset and base styles */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: Arial, sans-serif;
+        }
+        
+        body {
+            color: #333;
+            line-height: 1.5;
+            background-color: #f5f5f5;
+        }
+        
+        a {
+            text-decoration: none;
+            color: inherit;
+        }
+        
+        /* Header Styles */
+        .header-top {
+            background-color: #1a237e;
+            color: white;
+            padding: 8px 0;
+            font-size: 14px;
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 15px;
+        }
+        
+        .header-top .container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        
+        .contact-info span {
+            margin-right: 20px;
+        }
+        
+        .social-icons a {
+            margin-left: 10px;
+            color: white;
+        }
+        
+        /* Main Header with New Menu Structure */
+        .main-header {
+            background-color: white;
+            padding: 15px 0;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+            position: relative;
+        }
+        
+        .main-header .container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        
+        .logo {
+            display: flex;
+            align-items: center;
+        }
+        
+        .logo-img {
+            background: url("images/wmit logo.png") center/contain no-repeat;
+            width: 80px;
+            height: 80px;
+            min-width: 80px;
+            color: white;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: bold;
+            margin-right: 15px;
+            border-radius: 5px;
+        }
+        
+        .logo-text h1 {
+            font-size: 24px;
+            color: #1a237e;
+            line-height: 1.2;
+        }
+        
+        .logo-text p {
+            font-size: 12px;
+            color: #666;
+        }
+        
+        /* Menu Toggle Button (For Mobile Only) */
+        .menu-toggle {
+            display: none;
+            background: none;
+            border: none;
+            font-size: 24px;
+            color: #1a237e;
+            cursor: pointer;
+            padding: 5px;
+            z-index: 1001;
+        }
+        
+        .menu-toggle i {
+            font-size: 28px;
+        }
+        
+        /* Main Navigation */
+        .main-nav {
+            display: block;
+        }
+        
+        .main-nav > ul {
+            display: flex;
+            list-style: none;
+        }
+        
+        .main-nav > ul > li {
+            position: relative;
+            margin-left: 15px;
+        }
+        
+        .main-nav > ul > li > a {
+            color: #333;
+            font-weight: 500;
+            font-size: 15px;
+            transition: color 0.3s;
+            padding: 8px 12px;
+            display: block;
+        }
+        
+        .main-nav > ul > li > a:hover {
+            color: #1a237e;
+            background-color: #f0f0f0;
+            border-radius: 4px;
+        }
+        
+        /* Dropdown Menus */
+        .dropdown {
+            position: absolute;
+            top: 100%;
+            left: 0;
+            background-color: white;
+            min-width: 220px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+            border-radius: 5px;
+            opacity: 0;
+            visibility: hidden;
+            transform: translateY(10px);
+            transition: all 0.3s ease;
+            z-index: 1000;
+        }
+        
+        .main-nav > ul > li:hover .dropdown {
+            opacity: 1;
+            visibility: visible;
+            transform: translateY(0);
+        }
+        
+        .dropdown li {
+            list-style: none;
+            border-bottom: 1px solid #f0f0f0;
+        }
+        
+        .dropdown li:last-child {
+            border-bottom: none;
+        }
+        
+        .dropdown a {
+            padding: 12px 20px;
+            display: block;
+            color: #333;
+            transition: all 0.3s;
+        }
+        
+        .dropdown a:hover {
+            background-color: #e3f2fd;
+            color: #1a237e;
+            padding-left: 25px;
+        }
+        
+        /* Multi-level Dropdown */
+        .dropdown .dropdown {
+            left: 100%;
+            top: 0;
+            margin-left: 1px;
+        }
+        
+        .dropdown li:hover > .dropdown {
+            opacity: 1;
+            visibility: visible;
+            transform: translateY(0);
+        }
+        
+        /* Arrow indicators */
+        .has-dropdown > a::after {
+            content: "▾";
+            margin-left: 5px;
+            font-size: 12px;
+        }
+        
+        .dropdown .has-dropdown > a::after {
+            content: "▸";
+            float: right;
+        }
+        
+        /* Hotel Management Hero Section */
+        .hotel-hero {
+            background: linear-gradient(rgba(26, 35, 126, 0.9), rgba(26, 35, 126, 0.9)), #1a237e;
+            background-size: cover;
+            background-position: center;
+            color: white;
+            padding: 100px 0;
+            text-align: center;
+        }
+        
+        .hotel-hero h1 {
+            font-size: 48px;
+            margin-bottom: 20px;
+            font-weight: bold;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+        }
+        
+        .hotel-hero p {
+            font-size: 20px;
+            max-width: 900px;
+            margin: 0 auto 30px;
+            line-height: 1.6;
+            text-shadow: 1px 1px 2px rgba(0,0,0,0.3);
+        }
+        
+        .cta-button {
+            display: inline-block;
+            background-color: #e53935;
+            color: white;
+            padding: 15px 40px;
+            border-radius: 4px;
+            font-weight: bold;
+            font-size: 18px;
+            transition: all 0.3s;
+            border: none;
+            cursor: pointer;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+        }
+        
+        .cta-button:hover {
+            background-color: #c62828;
+            transform: translateY(-3px);
+            box-shadow: 0 6px 15px rgba(0,0,0,0.3);
+        }
+        
+        /* Introduction Section */
+        .intro-section {
+            padding: 80px 0;
+            background-color: white;
+        }
+        
+        .section-title {
+            margin-bottom: 40px;
+            padding-bottom: 15px;
+            border-bottom: 2px solid #1a237e;
+            color: #1a237e;
+            font-size: 36px;
+            text-align: center;
+        }
+        
+        .intro-content {
+            max-width: 1000px;
+            margin: 0 auto;
+            font-size: 18px;
+            line-height: 1.8;
+            color: #444;
+            text-align: justify;
+        }
+        
+        /* Highlight Section */
+        .highlight-section {
+            padding: 80px 0;
+            background: linear-gradient(to right, #f0f5ff, #e8eaf6);
+        }
+        
+        .highlight-content {
+            text-align: center;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+        
+        .highlight-content h2 {
+            color: #1a237e;
+            font-size: 32px;
+            margin-bottom: 20px;
+        }
+        
+        .highlight-content p {
+            font-size: 18px;
+            color: #555;
+            line-height: 1.8;
+        }
+        
+        /* Courses Section */
+        .courses-section {
+            padding: 80px 0;
+            background-color: white;
+        }
+        
+        .courses-tabs {
+            display: flex;
+            justify-content: center;
+            margin-bottom: 40px;
+            border-bottom: 2px solid #e0e0e0;
+            flex-wrap: wrap;
+        }
+        
+        .tab-btn {
+            background: none;
+            border: none;
+            padding: 15px 30px;
+            font-size: 16px;
+            font-weight: 600;
+            color: #666;
+            cursor: pointer;
+            position: relative;
+            transition: all 0.3s;
+            margin: 5px;
+        }
+        
+        .tab-btn.active {
+            color: #1a237e;
+        }
+        
+        .tab-btn.active:after {
+            content: '';
+            position: absolute;
+            bottom: -2px;
+            left: 0;
+            width: 100%;
+            height: 4px;
+            background-color: #1a237e;
+        }
+        
+        .course-content {
+            display: none;
+            background: white;
+            padding: 40px;
+            border-radius: 10px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+            border: 1px solid #e0e0e0;
+        }
+        
+        .course-content.active {
+            display: block;
+        }
+        
+        .course-header {
+            text-align: center;
+            margin-bottom: 40px;
+            padding-bottom: 20px;
+            border-bottom: 2px solid #e0e0e0;
+        }
+        
+        .course-header h3 {
+            color: #1a237e;
+            font-size: 28px;
+            margin-bottom: 15px;
+        }
+        
+        .course-header p {
+            color: #666;
+            font-size: 18px;
+            max-width: 900px;
+            margin: 0 auto;
+        }
+        
+        .course-info {
+            display: flex;
+            justify-content: center;
+            gap: 40px;
+            margin-top: 20px;
+            flex-wrap: wrap;
+        }
+        
+        .info-item {
+            background: #f5f5f5;
+            padding: 15px 25px;
+            border-radius: 5px;
+            text-align: center;
+            min-width: 200px;
+        }
+        
+        .info-item h4 {
+            color: #1a237e;
+            font-size: 16px;
+            margin-bottom: 5px;
+        }
+        
+        .info-item p {
+            color: #555;
+            font-weight: bold;
+        }
+        
+        /* Course Modules Grid */
+        .course-modules {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 30px;
+        }
+        
+        .module-card {
+            background: #f9f9f9;
+            padding: 25px;
+            border-radius: 8px;
+            border-left: 4px solid #e53935;
+        }
+        
+        .module-card h4 {
+            color: #1a237e;
+            font-size: 20px;
+            margin-bottom: 20px;
+            padding-bottom: 10px;
+            border-bottom: 1px solid #e0e0e0;
+            text-align: center;
+        }
+        
+        .module-list {
+            list-style: none;
+        }
+        
+        .module-list li {
+            padding: 10px 0;
+            color: #555;
+            display: flex;
+            align-items: center;
+            border-bottom: 1px dashed #e0e0e0;
+        }
+        
+        .module-list li:last-child {
+            border-bottom: none;
+        }
+        
+        .module-list li:before {
+            content: "•";
+            color: #e53935;
+            font-weight: bold;
+            margin-right: 10px;
+            font-size: 18px;
+        }
+        
+        /* Additional Courses Section */
+        .additional-courses {
+            padding: 80px 0;
+            background-color: #f0f5ff;
+        }
+        
+        .courses-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 30px;
+        }
+        
+        .course-card {
+            background: white;
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.08);
+            border-top: 4px solid #1a237e;
+            transition: transform 0.3s;
+        }
+        
+        .course-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 30px rgba(0,0,0,0.15);
+        }
+        
+        .course-card h3 {
+            color: #1a237e;
+            font-size: 22px;
+            margin-bottom: 15px;
+            text-align: center;
+        }
+        
+        .course-card p {
+            color: #555;
+            margin-bottom: 20px;
+            line-height: 1.6;
+        }
+        
+        .course-card .course-info {
+            justify-content: flex-start;
+            gap: 20px;
+        }
+        
+        /* Tourism Courses Section */
+        .tourism-courses {
+            padding: 80px 0;
+            background-color: white;
+        }
+        
+        .tourism-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 30px;
+        }
+        
+        /* CTA Section */
+        .cta-section {
+            background: linear-gradient(135deg, #1a237e 0%, #283593 100%), #1a237e;
+            background-size: cover;
+            background-blend-mode: overlay;
+            color: white;
+            padding: 100px 0;
+            text-align: center;
+        }
+        
+        .cta-section h2 {
+            font-size: 36px;
+            margin-bottom: 20px;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+        }
+        
+        .cta-section p {
+            font-size: 20px;
+            max-width: 800px;
+            margin: 0 auto 40px;
+            opacity: 0.9;
+        }
+        
+        .cta-buttons {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            flex-wrap: wrap;
+        }
+        
+        .cta-btn {
+            padding: 15px 35px;
+            border-radius: 4px;
+            font-weight: 600;
+            font-size: 16px;
+            cursor: pointer;
+            transition: all 0.3s;
+            border: none;
+        }
+        
+        .cta-btn.primary {
+            background-color: #e53935;
+            color: white;
+        }
+        
+        .cta-btn.secondary {
+            background-color: transparent;
+            color: white;
+            border: 2px solid white;
+        }
+        
+        .cta-btn:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+        }
+        
+        .cta-btn.primary:hover {
+            background-color: #c62828;
+        }
+        
+        .cta-btn.secondary:hover {
+            background-color: rgba(255, 255, 255, 0.1);
+        }
+        
+        /* Footer */
+        .footer {
+            background-color: #1a237e;
+            color: white;
+            padding: 60px 0 30px;
+        }
+        
+        .footer-content {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 40px;
+            margin-bottom: 40px;
+        }
+        
+        .footer-column h3 {
+            font-size: 18px;
+            margin-bottom: 20px;
+            position: relative;
+            padding-bottom: 10px;
+        }
+        
+        .footer-column h3:after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 40px;
+            height: 2px;
+            background-color: #e53935;
+        }
+        
+        .footer-column p {
+            margin-bottom: 15px;
+            font-size: 14px;
+            opacity: 0.8;
+        }
+        
+        .footer-column a {
+            display: block;
+            margin-bottom: 10px;
+            font-size: 14px;
+            opacity: 0.8;
+            transition: opacity 0.3s;
+        }
+        
+        .footer-column a:hover {
+            opacity: 1;
+        }
+        
+        .footer-bottom {
+            text-align: center;
+            padding-top: 30px;
+            border-top: 1px solid rgba(255,255,255,0.1);
+            font-size: 14px;
+            opacity: 0.7;
+        }
+        
+        /* Responsive */
+        @media (max-width: 1200px) {
+            .container {
+                max-width: 95%;
+            }
+        }
+        
+        @media (max-width: 992px) {
+            .courses-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .tourism-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .course-modules {
+                grid-template-columns: 1fr;
+            }
+            
+            .footer-content {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+        
+        @media (max-width: 768px) {
+            .menu-toggle {
+                display: block;
+            }
+            
+            .main-nav {
+                position: fixed;
+                top: 0;
+                right: -100%;
+                width: 280px;
+                height: 100vh;
+                background-color: white;
+                box-shadow: -5px 0 15px rgba(0,0,0,0.1);
+                overflow-y: auto;
+                transition: right 0.3s ease;
+                z-index: 1000;
+                padding-top: 70px;
+            }
+            
+            .main-nav.active {
+                right: 0;
+            }
+            
+            .main-nav > ul {
+                flex-direction: column;
+                padding: 0;
+            }
+            
+            .main-nav > ul > li {
+                margin: 0;
+                width: 100%;
+                border-bottom: 1px solid #f0f0f0;
+            }
+            
+            .main-nav > ul > li > a {
+                padding: 15px 20px;
+            }
+            
+            /* Dropdown for mobile */
+            .dropdown {
+                position: static;
+                opacity: 1;
+                visibility: visible;
+                transform: none;
+                box-shadow: none;
+                background-color: #f9f9f9;
+                max-height: 0;
+                overflow: hidden;
+                transition: max-height 0.3s ease;
+                border-radius: 0;
+                display: block !important;
+            }
+            
+            .dropdown.active {
+                max-height: 500px;
+            }
+            
+            .dropdown li {
+                border-bottom: 1px solid #e0e0e0;
+            }
+            
+            .dropdown .dropdown {
+                margin-left: 20px;
+            }
+            
+            /* Remove hover effects for mobile */
+            .main-nav > ul > li:hover .dropdown {
+                opacity: 1;
+                visibility: visible;
+                transform: none;
+            }
+            
+            .dropdown li:hover > .dropdown {
+                opacity: 1;
+                visibility: visible;
+                transform: none;
+            }
+            
+            /* Mobile overlay */
+            .nav-overlay {
+                position: fixed;
+                top: 0;
+                left: 0;
+                width: 100%;
+                height: 100%;
+                background-color: rgba(0,0,0,0.5);
+                z-index: 999;
+                display: none;
+            }
+            
+            .nav-overlay.active {
+                display: block;
+            }
+            
+            .hotel-hero {
+                padding: 80px 0;
+            }
+            
+            .hotel-hero h1 {
+                font-size: 36px;
+            }
+            
+            .hotel-hero p {
+                font-size: 18px;
+            }
+            
+            .section-title {
+                font-size: 28px;
+            }
+            
+            .courses-tabs {
+                flex-direction: column;
+                align-items: center;
+            }
+            
+            .tab-btn {
+                width: 100%;
+                max-width: 300px;
+                margin-bottom: 10px;
+            }
+            
+            .cta-buttons {
+                flex-direction: column;
+                align-items: center;
+            }
+            
+            .cta-btn {
+                width: 100%;
+                max-width: 300px;
+            }
+            
+            .logo-text h1 {
+                font-size: 20px;
+            }
+            
+            .logo-img {
+                width: 80px;
+                height: 80px;
+            }
+        }
+        
+        @media (max-width: 576px) {
+            .hotel-hero h1 {
+                font-size: 32px;
+            }
+            
+            .section-title {
+                font-size: 24px;
+            }
+            
+            .programs-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .header-top .container {
+                flex-direction: column;
+                text-align: center;
+            }
+            
+            .contact-info span {
+                display: block;
+                margin-right: 0;
+                margin-bottom: 5px;
+            }
+            
+            .contact-info span:last-child {
+                margin-bottom: 0;
+            }
+            
+            .logo {
+                flex-direction: column;
+                text-align: center;
+            }
+            
+            .logo-img {
+                margin-right: 0;
+                margin-bottom: 10px;
+            }
+            
+            .footer-content {
+                grid-template-columns: 1fr;
+            }
+            
+            .course-content {
+                padding: 20px;
+            }
+            
+            .course-info {
+                flex-direction: column;
+                gap: 15px;
+            }
+        }
+    </style>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+    <!-- Header Top -->
+    <div class="header-top">
+        <div class="container">
+            <div class="contact-info">
+                <span><i class="fas fa-phone"></i> +91 9958430389</span>
+                <span><i class="fas fa-envelope"></i> info@wimt.org</span>
+            </div>
+            <div class="social-icons">
+                <a href="#"><i class="fab fa-facebook-f"></i></a>
+                <a href="#"><i class="fab fa-twitter"></i></a>
+                <a href="#"><i class="fab fa-linkedin-in"></i></a>
+                <a href="#"><i class="fab fa-instagram"></i></a>
+            </div>
+        </div>
+    </div>
+
+    <!-- Main Header with Updated Menu Structure -->
+    <header class="main-header">
+        <div class="container">
+            <div class="logo">
+                <div class="logo-img"></div>
+                <div class="logo-text">
+                    <h1>Wintech Institute of Management & Technology</h1>
+                    <p>Best Institute for Online Courses</p>
+                </div>
+            </div>
+            
+            <!-- Mobile Menu Toggle Button -->
+            <button class="menu-toggle" id="menuToggle">
+                <i class="fas fa-bars"></i>
+            </button>
+            
+            <!-- Mobile overlay -->
+            <div class="nav-overlay" id="navOverlay"></div>
+            
+            <nav class="main-nav" id="mainNav">
+                <ul>
+                    <li><a href="index.html" class="menu-link">Home</a></li>
+                    
+                    <li class="has-dropdown">
+                        <a href="#" class="menu-link">Courses <i class="fas fa-chevron-down dropdown-icon"></i></a>
+                        <ul class="dropdown">
+                            <li><a href="engineering.html" class="menu-link">Engineering</a></li>
+                            <li><a href="manegement course.html" class="menu-link">Management</a></li>
+                            <li><a href="iti course.html" class="menu-link">ITI</a></li>
+                            <li><a href="hotel management.html" class="menu-link active">Hotel Management</a></li>
+                            <li><a href="computer course.html" class="menu-link">Computer Application Courses</a></li>
+                            <li><a href="degital marketing course.html" class="menu-link">Digital Marketing Courses</a></li>
+                        </ul>
+                    </li>
+                    
+                    <li class="has-dropdown">
+                        <a href="#" class="menu-link">Examination <i class="fas fa-chevron-down dropdown-icon"></i></a>
+                        <ul class="dropdown">
+                            <li><a href="form.html" class="menu-link">Other Forms</a></li>
+                            <li><a href="result.html" class="menu-link">Results</a></li>
+                            <li><a href="application.html" class="menu-link">Application Form</a></li>
+                            <li><a href="#" class="menu-link">Fees Structure</a></li>
+                        </ul>
+                    </li>
+                    
+                    <li><a href="contect us.html" class="menu-link">Contact</a></li>
+                    <li><a href="verification.html" class="menu-link">Verification</a></li>
+                  
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Hotel Management Hero Section -->
+    <section class="hotel-hero">
+        <div class="container">
+            <h1>Best Institute for Hotel Management Course</h1>
+            <p>Hotel management courses equip you with practical skills to thrive in hospitality and tourism. Join the best institute for hotel management course and start your successful career today!</p>
+            <button class="cta-button">ENQUIRE NOW</button>
+        </div>
+    </section>
+
+    <!-- Introduction Section -->
+    <section class="intro-section">
+        <div class="container">
+            <h2 class="section-title">Dreaming of a Career in Hospitality?</h2>
+            <div class="intro-content">
+                <p>Our Hotel Management programs at Wintech Institute of Management and Technology equip you with the skills to excel. As the <strong>best institute for hotel management course</strong>, we offer hands-on training, expert faculty, and real-world experience. Whether you aim to manage top hotels or start your own venture, we open doors to success. Join the <strong>best institute for hotel management course</strong> today and start your journey toward a thriving future in hospitality!</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Main Courses Section -->
+    <section class="courses-section" id="hotel-management">
+        <div class="container">
+            <h2 class="section-title">Our Hotel Management Programs</h2>
+            
+            <div class="courses-tabs">
+                <button class="tab-btn active" data-tab="diploma">Diploma in HM</button>
+                <button class="tab-btn" data-tab="bba">BBA in HM</button>
+                <button class="tab-btn" data-tab="bachelor">Bachelor of HM</button>
+                <button class="tab-btn" data-tab="bachelor-tourism">BTHM</button>
+            </div>
+            
+            <!-- Diploma in Hotel Management -->
+            <div class="course-content active" id="diploma">
+                <div class="course-header">
+                    <h3>Diploma in Hotel Management</h3>
+                    <p>Kickstart your career in the hospitality industry with a Diploma in Hotel Management at Wintech Institute of Management and Technology. Our comprehensive program provides hands-on training in hotel operations, food & beverage management, front office management, and customer service.</p>
+                    <p>As the <strong>best institute for hotel management course</strong>, we ensure students gain practical experience and industry exposure, preparing them for top jobs in hotels, resorts, and tourism. Join the <strong>best institute for hotel management course</strong> and turn your passion for hospitality into a successful career!</p>
+                    <div class="course-info">
+                        <div class="info-item">
+                            <h4>Eligibility</h4>
+                            <p>Graduation/Diploma/Equivalent</p>
+                        </div>
+                        <div class="info-item">
+                            <h4>Duration</h4>
+                            <p>One Year (Two Semesters)</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="course-modules">
+                    <div class="module-card">
+                        <h4>Semester I</h4>
+                        <ul class="module-list">
+                            <li>DHM 101 GENERAL ENGLISH</li>
+                            <li>DHM 102 FOOD SCIENCE</li>
+                            <li>DHM 103 PRINCIPLES OF ACCOUNTING</li>
+                            <li>DHM 104 BASIC FOOD PRODUCTION</li>
+                            <li>DHM 105 BASIC FOOD AND BEVERAGE SERVICE</li>
+                            <li>DHM 106 BASIC FRONT OFFICE OPERATIONS</li>
+                            <li>DHM 107 BASIC HOUSE KEEPING OPERATIONS</li>
+                        </ul>
+                    </div>
+                    
+                    <div class="module-card">
+                        <h4>Semester II</h4>
+                        <ul class="module-list">
+                            <li>DHM 201 ENGLISH AND COMMUNICATION</li>
+                            <li>DHM 203 NUTRITION</li>
+                            <li>DHM 204 BASICS OF COMPUTER</li>
+                            <li>DHM 205 HOTEL ENGINEERING AND MAINTENANCE</li>
+                            <li>DHM 206 FOOD PRODUCTION AND PATISSERIE - I</li>
+                            <li>DHM 207 FOOD AND BEVERAGE SERVICE - I</li>
+                            <li>DHM 208 FRONT OFFICE OPERATIONS - I</li>
+                            <li>DHM 209 ACCOMMODATION OPERATIONS - I</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- BBA in Hotel Management -->
+            <div class="course-content" id="bba">
+                <div class="course-header">
+                    <h3>BBA in Hotel Management</h3>
+                    <p>Kickstart your career in hospitality with our BBA in Hotel Management program! Gain in-depth knowledge, practical skills, and industry exposure to excel in the global hospitality sector. Wintech Institute of Management and Technology is the <strong>best institute for hotel management course</strong>, offering expert guidance and hands-on training. If you aspire to lead in the hospitality industry, join the <strong>best institute for hotel management course</strong> and shape your future today!</p>
+                    <div class="course-info">
+                        <div class="info-item">
+                            <h4>Eligibility</h4>
+                            <p>Graduation/Diploma/Equivalent</p>
+                        </div>
+                        <div class="info-item">
+                            <h4>Duration</h4>
+                            <p>Three Years (Six Semesters)</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="course-modules">
+                    <div class="module-card">
+                        <h4>Semester I</h4>
+                        <ul class="module-list">
+                            <li>BBAHM 101 Fundamentals of Management</li>
+                            <li>BBAHM 102 Travel and Tourism Management</li>
+                            <li>BBAHM 103 Tourism Resources of India</li>
+                            <li>BBAHM 104 Communication I</li>
+                            <li>BBAHM 105 Environmental Sciences I</li>
+                            <li>BBAHM 106 Introduction to the Indian Cookery</li>
+                            <li>BBAHM 107 Quantitative Techniques</li>
+                        </ul>
+                    </div>
+                    
+                    <div class="module-card">
+                        <h4>Semester II</h4>
+                        <ul class="module-list">
+                            <li>BBAHM 201 Hotel Accounting</li>
+                            <li>BBAHM 202 Accommodation & Front Office Foundation-I</li>
+                            <li>BBAHM 203 Food and Beverage Service Foundation-I</li>
+                            <li>BBAHM 204 Communication-II</li>
+                            <li>BBAHM 205 Environmental Sciences II</li>
+                            <li>BBAHM 206 Hospitality Marketing</li>
+                            <li>BBAHM 207 Ethics and Corporate Social Responsibility</li>
+                        </ul>
+                    </div>
+                    
+                    <div class="module-card">
+                        <h4>Semester III</h4>
+                        <ul class="module-list">
+                            <li>BBAHM 301 Hospitality Marketing</li>
+                            <li>BBAHM 302 Human Resource and Organizational Behaviour</li>
+                            <li>BBAHM 303 Advance Housekeeping Operations</li>
+                            <li>BBAHM 304 Basics of Food and Beverage Production</li>
+                            <li>BBAHM 305 Advanced Course in Front Office Operations</li>
+                            <li>BBAHM 306 Foreign Language-I</li>
+                        </ul>
+                    </div>
+                    
+                    <div class="module-card">
+                        <h4>Semester IV</h4>
+                        <ul class="module-list">
+                            <li>BBAHM 401 Nutrition and Food Science</li>
+                            <li>BBAHM 402 Hotel Engineering and Facilities Planning</li>
+                            <li>BBAHM 403 Advance Food and Beverage Operations</li>
+                            <li>BBAHM 405 Entrepreneurial Development</li>
+                            <li>BBAHM 406 Business Laws</li>
+                            <li>BBAHM 407 Foreign Language-II</li>
+                        </ul>
+                    </div>
+                    
+                    <div class="module-card">
+                        <h4>Semester V</h4>
+                        <ul class="module-list">
+                            <li>BBAHM 501 Financial Management</li>
+                            <li>BBAHM 502 Convention and Event Planning</li>
+                            <li>BBAHM 503 Specialized Catering Management</li>
+                            <li>BBAHM 504 Global Cuisine and Culture</li>
+                            <li>BBAHM 505 Information Technology in Tourism and Hospitality</li>
+                            <li>BBAHM 506 Foreign Language-III</li>
+                        </ul>
+                    </div>
+                    
+                    <div class="module-card">
+                        <h4>Semester VI</h4>
+                        <ul class="module-list">
+                            <li>BBAHM 601 Food & Beverage Services and Production</li>
+                            <li>BBAHM 602 Housekeeping</li>
+                            <li>BBAHM 603 Front Office</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Bachelor of Hotel Management -->
+            <div class="course-content" id="bachelor">
+                <div class="course-header">
+                    <h3>Bachelor of Hotel Management</h3>
+                    <p>Unlock endless opportunities in the hospitality industry with our Bachelor of Hotel Management program. At Wintech Institute of Management and Technology, we provide top-notch training in hotel operations, customer service, and business management. As the <strong>best institute for hotel management course</strong>, we ensure hands-on experience and industry exposure to help you build a successful career. Enroll today at the <strong>best institute for hotel management course</strong> and take the first step toward a bright future in hospitality!</p>
+                    <div class="course-info">
+                        <div class="info-item">
+                            <h4>Eligibility</h4>
+                            <p>Graduation/Diploma/Equivalent</p>
+                        </div>
+                        <div class="info-item">
+                            <h4>Duration</h4>
+                            <p>Four Years (Eight Semesters)</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="course-modules">
+                    <div class="module-card">
+                        <h4>Semester I</h4>
+                        <ul class="module-list">
+                            <li>BHM 101 Food Production Foundation-I</li>
+                            <li>BHM 102 Food & Beverage Service Foundation-I</li>
+                            <li>BHM 103 Introduction to Front Office</li>
+                            <li>BHM 104 Introduction To Accommodation Operation</li>
+                            <li>BHM 105 Application Of Computers</li>
+                            <li>BHM 106 Food Production Practical-I</li>
+                            <li>BHM 107 Food & Beverage Service Practical -I</li>
+                            <li>BHM 108 Personality Development Practical</li>
+                        </ul>
+                    </div>
+                    
+                    <div class="module-card">
+                        <h4>Semester II</h4>
+                        <ul class="module-list">
+                            <li>BHM 201 Food Production Foundation-II</li>
+                            <li>BHM 202 Food & Beverage Service Foundation-II</li>
+                            <li>BHM 203 Front Office Operations-I</li>
+                            <li>BHM 204 Communication skills-II</li>
+                            <li>BHM 205 Food Production Practical-II</li>
+                            <li>BHM 206 Communication Skills-II</li>
+                            <li>BHM 207 Front Office Practical-I</li>
+                            <li>BHM 208 Accommodation Operation Practical-I</li>
+                        </ul>
+                    </div>
+                    
+                    <div class="module-card">
+                        <h4>Semester III</h4>
+                        <ul class="module-list">
+                            <li>BHM 301 Food Production Operations-I</li>
+                            <li>BHM 302 Food & Beverage Operations-I</li>
+                            <li>BHM 303 Front Office Operation-II</li>
+                            <li>BHM 304 Food Production Practical-III</li>
+                            <li>BHM 305 Food & Beverage Service Practical-III</li>
+                            <li>BHM 306 Front Office Operations Practical-II</li>
+                            <li>BHM 307 Report Log Book & Viva Voce</li>
+                        </ul>
+                    </div>
+                    
+                    <div class="module-card">
+                        <h4>Semester IV</h4>
+                        <ul class="module-list">
+                            <li>BHM 401 Industrial Training</li>
+                            <li>BHM 402 Hotel Accounts</li>
+                            <li>BHM 403 Food Science & Nutrition</li>
+                            <li>BHM 404 Human Resource Management</li>
+                            <li>BHM 405 Communication skills</li>
+                            <li>BHM 406 Accommodation Operation-I</li>
+                            <li>BHM 407 Personality Development Practical-II</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Bachelor of Tourism and Hotel Management -->
+            <div class="course-content" id="bachelor-tourism">
+                <div class="course-header">
+                    <h3>Bachelor of Tourism and Hotel Management</h3>
+                    <p>A Bachelor of Tourism and Hospitality Management is a great choice for anyone passionate about travel, hospitality, and customer service. This degree teaches you how the tourism industry works, from hotel management and event planning to travel services and food & beverage operations. You'll learn essential skills like communication, leadership, and problem-solving, which are crucial for careers in hotels, airlines, travel agencies, and even your own business. With the growing demand for tourism professionals worldwide, this degree opens doors to exciting job opportunities in different parts of the world.</p>
+                    <div class="course-info">
+                        <div class="info-item">
+                            <h4>Duration</h4>
+                            <p>Three Years (Six Semesters)</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="course-modules">
+                    <div class="module-card">
+                        <h4>Semester I</h4>
+                        <ul class="module-list">
+                            <li>BTHM-101 Introduction to Hotel Business</li>
+                            <li>BTHM-102 Basics of Tourism</li>
+                            <li>BTHM-103 Food Production-I</li>
+                            <li>BTHM-104 Food and Beverage Service I</li>
+                            <li>BTHM-105 Communication Skills in English</li>
+                            <li>BTHM-106 Punjabi (Compulsory) OR Basic Punjabi</li>
+                        </ul>
+                    </div>
+                    
+                    <div class="module-card">
+                        <h4>Semester II</h4>
+                        <ul class="module-list">
+                            <li>BTHM-201 Front Office Operations-I</li>
+                            <li>BTHM-202 Basics of Management</li>
+                            <li>BTHM-203 Tourism Management in India</li>
+                            <li>BTHM-204 Hotel House Keeping-I</li>
+                            <li>BTHM-205 Communication Skills in English</li>
+                            <li>BTHM-206 Punjabi (Compulsory) OR Basic Punjabi</li>
+                        </ul>
+                    </div>
+                    
+                    <div class="module-card">
+                        <h4>Semester III</h4>
+                        <ul class="module-list">
+                            <li>BTHM-301 Hotel House Keeping-II</li>
+                            <li>BTHM-302 Food Production-II</li>
+                            <li>BTHM-303 Marketing & PR in Service Industry</li>
+                            <li>BTHM-304 Information and Communication Technology in Tourism and Hotel Industry</li>
+                            <li>BTHM-305 Financial and Hotel Accounting</li>
+                            <li>ESL-221 Environmental Studies-I</li>
+                        </ul>
+                    </div>
+                    
+                    <div class="module-card">
+                        <h4>Semester IV</h4>
+                        <ul class="module-list">
+                            <li>BTHM-401 Front Office Operations-II</li>
+                            <li>BTHM-402 Hygiene & Sanitation</li>
+                            <li>BTHM-403 Tourism Products in India</li>
+                            <li>BTHM-404 Fundamentals of Computer</li>
+                            <li>ESL-222 Environmental Studies-II</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Additional Courses Section -->
+    <section class="additional-courses">
+        <div class="container">
+            <h2 class="section-title">Postgraduate & Diploma Programs</h2>
+            
+            <div class="courses-grid">
+                <div class="course-card">
+                    <h3>Master in Tourism and Travel Management</h3>
+                    <p>Advanced program focusing on tourism planning, management, marketing, and sustainable tourism development. Prepares students for leadership roles in the tourism and hospitality industry.</p>
+                    <div class="course-info">
+                        <div class="info-item">
+                            <h4>Duration</h4>
+                            <p>2 Years</p>
+                        </div>
+                    </div>
+                    <div class="module-card" style="margin-top: 20px; padding: 15px;">
+                        <h4 style="font-size: 16px; margin-bottom: 10px;">Key Subjects</h4>
+                        <ul class="module-list" style="font-size: 14px;">
+                            <li>Tourism Geography</li>
+                            <li>Travel Agency Management</li>
+                            <li>Tourism Marketing</li>
+                            <li>Hospitality Management</li>
+                            <li>Event Management</li>
+                            <li>Digital Marketing for Tourism</li>
+                            <li>Sustainable Tourism</li>
+                        </ul>
+                    </div>
+                </div>
+                
+                <div class="course-card">
+                    <h3>Diploma in Tourism and Service Industry</h3>
+                    <p>Short-term diploma program focusing on travel trade, tourism products, hospitality basics, and tour operations. Ideal for quick entry into the tourism and service industry.</p>
+                    <div class="course-info">
+                        <div class="info-item">
+                            <h4>Duration</h4>
+                            <p>1 Year</p>
+                        </div>
+                    </div>
+                    <div class="module-card" style="margin-top: 20px; padding: 15px;">
+                        <h4 style="font-size: 16px; margin-bottom: 10px;">Key Subjects</h4>
+                        <ul class="module-list" style="font-size: 14px;">
+                            <li>Tourism Concept and Impact</li>
+                            <li>Tourism Products of India</li>
+                            <li>Travel Trade and Transport</li>
+                            <li>Introduction to Hospitality Industry</li>
+                            <li>Travel Agency and Tour Operation</li>
+                            <li>Air Fare and Ticketing</li>
+                            <li>Adventure and Eco-Tourism</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA Section -->
+    <section class="cta-section">
+        <div class="container">
+            <h2>Start Your Exciting Career in Hospitality</h2>
+            <p>Join hundreds of successful graduates who are now working in top hotels, resorts, airlines, and tourism companies worldwide. Our industry-focused curriculum and hands-on training ensure you're ready for the global hospitality market.</p>
+            <div class="cta-buttons">
+                <button class="cta-btn primary">Apply for Admission</button>
+                <button class="cta-btn secondary">Download Brochure</button>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-column">
+                    <h3>WIMT Institute</h3>
+                    <p>Wintech Institute of Management & Technology (WIMT) is committed to delivering high-quality education through innovative learning techniques and industry-relevant programs.</p>
+               
+                </div>
+      
+                <div class="footer-column">
+                    <h3>Contact Info</h3>
+                    <p><i class="fas fa-map-marker-alt"></i> A1/1, Central Market Budela, Vikaspuri, New Delhi - 110018</p>
+                    <p><i class="fas fa-phone"></i> +91 9958430389</p>
+                    <p><i class="fas fa-envelope"></i> Info@wimt.org</p>
+                    <p><i class="fas fa-globe"></i> www.wimt.org</p>
+                </div>
+                <div class="footer-column">
+                    <h3>Approvals</h3>
+                    <p>U.G.C Approved Universities</p>
+                    <p>NCT Approved Institute</p>
+                    <p>Various Certified Courses</p>
+                    <p>Industry Recognized Programs</p>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>© Copyright 1990 Wintech Institute of Management & Technology. All Rights Reserved.</p>
+                <p>Designed for Your Success. | Development by DigiSe</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Mobile Menu Toggle Functionality
+        const menuToggle = document.getElementById('menuToggle');
+        const mainNav = document.getElementById('mainNav');
+        const navOverlay = document.getElementById('navOverlay');
+        let isMenuOpen = false;
+        
+        // Toggle menu function
+        function toggleMenu() {
+            isMenuOpen = !isMenuOpen;
+            mainNav.classList.toggle('active');
+            navOverlay.classList.toggle('active');
+            
+            if (isMenuOpen) {
+                menuToggle.innerHTML = '<i class="fas fa-times"></i>';
+                document.body.style.overflow = 'hidden'; // Prevent scrolling
+            } else {
+                menuToggle.innerHTML = '<i class="fas fa-bars"></i>';
+                document.body.style.overflow = 'auto'; // Allow scrolling
+            }
+        }
+        
+        // Toggle menu on button click
+        menuToggle.addEventListener('click', function(e) {
+            e.stopPropagation();
+            toggleMenu();
+        });
+        
+        // Close menu when clicking on overlay
+        navOverlay.addEventListener('click', function() {
+            if (isMenuOpen) {
+                toggleMenu();
+            }
+        });
+        
+        // Mobile dropdown toggle
+        const dropdownParents = document.querySelectorAll('.has-dropdown');
+        
+        dropdownParents.forEach(parent => {
+            const dropdownLink = parent.querySelector('.menu-link');
+            const dropdown = parent.querySelector('.dropdown');
+            const dropdownIcon = parent.querySelector('.dropdown-icon');
+            
+            dropdownLink.addEventListener('click', function(e) {
+                if (window.innerWidth <= 768) {
+                    e.preventDefault();
+                    e.stopPropagation();
+                    
+                    // Close other open dropdowns
+                    document.querySelectorAll('.dropdown.active').forEach(otherDropdown => {
+                        if (otherDropdown !== dropdown) {
+                            otherDropdown.classList.remove('active');
+                            const otherIcon = otherDropdown.parentElement.querySelector('.dropdown-icon');
+                            if (otherIcon) {
+                                otherIcon.classList.remove('fa-chevron-up');
+                                otherIcon.classList.add('fa-chevron-down');
+                            }
+                        }
+                    });
+                    
+                    // Toggle current dropdown
+                    dropdown.classList.toggle('active');
+                    
+                    // Rotate icon
+                    if (dropdownIcon) {
+                        if (dropdown.classList.contains('active')) {
+                            dropdownIcon.classList.remove('fa-chevron-down');
+                            dropdownIcon.classList.add('fa-chevron-up');
+                        } else {
+                            dropdownIcon.classList.remove('fa-chevron-up');
+                            dropdownIcon.classList.add('fa-chevron-down');
+                        }
+                    }
+                }
+            });
+        });
+        
+        // Close menu when clicking on a menu link (for mobile)
+        document.querySelectorAll('.main-nav a').forEach(link => {
+            link.addEventListener('click', function(e) {
+                // Only close menu on mobile
+                if (window.innerWidth <= 768) {
+                    // Don't close if it's a dropdown toggle
+                    if (!this.parentElement.classList.contains('has-dropdown') || 
+                        !this.classList.contains('menu-link')) {
+                        toggleMenu();
+                    }
+                }
+            });
+        });
+        
+        // Close menu when window is resized to desktop size
+        window.addEventListener('resize', function() {
+            if (window.innerWidth > 768 && isMenuOpen) {
+                toggleMenu();
+            }
+        });
+        
+        // Course tabs functionality
+        const tabButtons = document.querySelectorAll('.tab-btn');
+        const courseContents = document.querySelectorAll('.course-content');
+        
+        tabButtons.forEach(button => {
+            button.addEventListener('click', () => {
+                // Remove active class from all buttons and contents
+                tabButtons.forEach(btn => btn.classList.remove('active'));
+                courseContents.forEach(content => content.classList.remove('active'));
+                
+                // Add active class to clicked button
+                button.classList.add('active');
+                
+                // Show corresponding content
+                const tabId = button.getAttribute('data-tab');
+                document.getElementById(tabId).classList.add('active');
+            });
+        });
+        
+        // CTA buttons functionality
+        document.querySelectorAll('.cta-button, .cta-btn').forEach(button => {
+            button.addEventListener('click', function() {
+                if (this.classList.contains('primary') || this.classList.contains('cta-button')) {
+                    alert("Thank you for your interest in our Hotel Management courses! Our admissions team will contact you shortly.");
+                } else if (this.classList.contains('secondary')) {
+                    alert("Hotel Management course brochure download will start shortly. Check your downloads folder.");
+                }
+            });
+        });
+        
+        // Smooth scrolling for anchor links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function(e) {
+                const href = this.getAttribute('href');
+                
+                // Don't prevent default if it's just "#"
+                if (href === '#') return;
+                
+                const targetElement = document.querySelector(href);
+                if (targetElement) {
+                    e.preventDefault();
+                    window.scrollTo({
+                        top: targetElement.offsetTop - 80,
+                        behavior: 'smooth'
+                    });
+                }
+            });
+        });
+        
+        // Highlight active menu item
+        document.querySelectorAll('.menu-link').forEach(link => {
+            if (link.href === window.location.href) {
+                link.classList.add('active');
+            }
+        });
+        
+        // Set "Hotel Management" as active
+        document.querySelectorAll('a[href="hotel management.html"]').forEach(link => {
+            link.classList.add('active');
+        });
+    </script>
+</body>
+</html>

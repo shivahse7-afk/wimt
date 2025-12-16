@@ -1,0 +1,1470 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Computer Application Courses - WIMT | Wintech Institute of Management & Technology</title>
+    <style>
+        /* Reset and base styles */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: Arial, sans-serif;
+        }
+        
+        body {
+            color: #333;
+            line-height: 1.5;
+            background-color: #f5f5f5;
+        }
+        
+        a {
+            text-decoration: none;
+            color: inherit;
+        }
+        
+        /* Header Styles */
+        .header-top {
+            background-color: #1a237e;
+            color: white;
+            padding: 8px 0;
+            font-size: 14px;
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 15px;
+        }
+        
+        .header-top .container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        
+        .contact-info span {
+            margin-right: 20px;
+        }
+        
+        .social-icons a {
+            margin-left: 10px;
+            color: white;
+        }
+        
+        /* Main Header */
+        .main-header {
+            background-color: white;
+            padding: 15px 0;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+            position: relative;
+        }
+        
+        .main-header .container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        
+        .logo {
+            display: flex;
+            align-items: center;
+        }
+        
+        .logo-img {
+            background: url("images/wmit logo.png") center/contain no-repeat;
+            width: 80px;
+            height: 80px;
+            min-width: 80px;
+            color: white;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: bold;
+            margin-right: 15px;
+            border-radius: 5px;
+        }
+        
+        .logo-text h1 {
+            font-size: 20px;
+            color: #1a237e;
+            line-height: 1.2;
+        }
+        
+        .logo-text p {
+            font-size: 12px;
+            color: #666;
+        }
+        
+        /* Menu Button */
+        .menu-toggle {
+            display: none;
+            background: none;
+            border: none;
+            font-size: 24px;
+            color: #1a237e;
+            cursor: pointer;
+            padding: 5px;
+            z-index: 1001;
+        }
+        
+        /* Main Navigation */
+        .main-nav {
+            position: relative;
+        }
+        
+        .main-nav > ul {
+            display: flex;
+            list-style: none;
+        }
+        
+        .main-nav > ul > li {
+            position: relative;
+            margin-left: 15px;
+        }
+        
+        .main-nav > ul > li > a {
+            color: #333;
+            font-weight: 500;
+            font-size: 14px;
+            transition: color 0.3s;
+            padding: 8px 10px;
+            display: block;
+            cursor: pointer;
+            white-space: nowrap;
+        }
+        
+        .main-nav > ul > li > a:hover {
+            color: #1a237e;
+            background-color: #f0f0f0;
+            border-radius: 4px;
+        }
+        
+        .main-nav > ul > li > a.active {
+            color: #1a237e;
+            font-weight: 600;
+            background-color: #e8eaf6;
+            border-radius: 4px;
+        }
+        
+        /* Dropdown Menus */
+        .dropdown {
+            position: absolute;
+            top: 100%;
+            left: 0;
+            background-color: white;
+            min-width: 200px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+            border-radius: 5px;
+            opacity: 0;
+            visibility: hidden;
+            transform: translateY(10px);
+            transition: all 0.3s ease;
+            z-index: 1000;
+        }
+        
+        .main-nav > ul > li:hover .dropdown {
+            opacity: 1;
+            visibility: visible;
+            transform: translateY(0);
+        }
+        
+        .dropdown li {
+            list-style: none;
+            border-bottom: 1px solid #f0f0f0;
+        }
+        
+        .dropdown li:last-child {
+            border-bottom: none;
+        }
+        
+        .dropdown a {
+            padding: 10px 15px;
+            display: block;
+            color: #333;
+            transition: all 0.3s;
+            cursor: pointer;
+            font-size: 13px;
+        }
+        
+        .dropdown a:hover {
+            background-color: #e3f2fd;
+            color: #1a237e;
+            padding-left: 20px;
+        }
+        
+        /* Arrow indicators */
+        .has-dropdown > a::after {
+            content: "▾";
+            margin-left: 5px;
+            font-size: 12px;
+        }
+        
+        /* Computer Courses Hero Section */
+        .computer-hero {
+            background: linear-gradient(rgba(26, 35, 126, 0.9), rgba(26, 35, 126, 0.9));
+            color: white;
+            padding: 60px 0;
+            text-align: center;
+        }
+        
+        .computer-hero h1 {
+            font-size: 32px;
+            margin-bottom: 20px;
+            font-weight: bold;
+        }
+        
+        .computer-hero p {
+            font-size: 16px;
+            max-width: 900px;
+            margin: 0 auto 30px;
+            line-height: 1.6;
+        }
+        
+        .cta-button {
+            display: inline-block;
+            background-color: #e53935;
+            color: white;
+            padding: 12px 30px;
+            border-radius: 4px;
+            font-weight: bold;
+            font-size: 16px;
+            transition: background-color 0.3s;
+            border: none;
+            cursor: pointer;
+        }
+        
+        .cta-button:hover {
+            background-color: #c62828;
+        }
+        
+        /* Introduction Section */
+        .intro-section {
+            padding: 60px 0;
+            background-color: white;
+        }
+        
+        .section-title {
+            margin-bottom: 30px;
+            padding-bottom: 15px;
+            border-bottom: 2px solid #1a237e;
+            color: #1a237e;
+            font-size: 28px;
+            text-align: center;
+        }
+        
+        .intro-content {
+            max-width: 1000px;
+            margin: 0 auto;
+            font-size: 16px;
+            line-height: 1.8;
+            color: #444;
+            text-align: justify;
+        }
+        
+        /* Courses Section */
+        .courses-section {
+            padding: 60px 0;
+            background-color: #f0f5ff;
+        }
+        
+        .courses-tabs {
+            display: flex;
+            justify-content: center;
+            margin-bottom: 40px;
+            border-bottom: 2px solid #e0e0e0;
+            flex-wrap: wrap;
+        }
+        
+        .tab-btn {
+            background: none;
+            border: none;
+            padding: 12px 25px;
+            font-size: 15px;
+            font-weight: 600;
+            color: #666;
+            cursor: pointer;
+            position: relative;
+            transition: all 0.3s;
+            margin: 5px;
+        }
+        
+        .tab-btn.active {
+            color: #1a237e;
+        }
+        
+        .tab-btn.active:after {
+            content: '';
+            position: absolute;
+            bottom: -2px;
+            left: 0;
+            width: 100%;
+            height: 4px;
+            background-color: #1a237e;
+        }
+        
+        .course-content {
+            display: none;
+            background: white;
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+        }
+        
+        .course-content.active {
+            display: block;
+        }
+        
+        .course-header {
+            text-align: center;
+            margin-bottom: 40px;
+            padding-bottom: 20px;
+            border-bottom: 2px solid #e0e0e0;
+        }
+        
+        .course-header h3 {
+            color: #1a237e;
+            font-size: 24px;
+            margin-bottom: 10px;
+        }
+        
+        .course-info {
+            display: flex;
+            justify-content: center;
+            gap: 30px;
+            margin-top: 20px;
+            flex-wrap: wrap;
+        }
+        
+        .info-item {
+            background: #f5f5f5;
+            padding: 12px 20px;
+            border-radius: 5px;
+            text-align: center;
+        }
+        
+        .info-item h4 {
+            color: #1a237e;
+            font-size: 15px;
+            margin-bottom: 5px;
+        }
+        
+        .info-item p {
+            color: #555;
+            font-weight: bold;
+            font-size: 14px;
+        }
+        
+        /* Course Modules Grid */
+        .course-modules {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 25px;
+        }
+        
+        .module-card {
+            background: #f9f9f9;
+            padding: 20px;
+            border-radius: 8px;
+            border-left: 4px solid #1a237e;
+        }
+        
+        .module-card h4 {
+            color: #1a237e;
+            font-size: 18px;
+            margin-bottom: 15px;
+            padding-bottom: 10px;
+            border-bottom: 1px solid #e0e0e0;
+            text-align: center;
+        }
+        
+        .module-list {
+            list-style: none;
+        }
+        
+        .module-list li {
+            padding: 8px 0;
+            color: #555;
+            display: flex;
+            align-items: center;
+            border-bottom: 1px dashed #e0e0e0;
+            font-size: 14px;
+        }
+        
+        .module-list li:last-child {
+            border-bottom: none;
+        }
+        
+        .module-list li:before {
+            content: "•";
+            color: #1a237e;
+            font-weight: bold;
+            margin-right: 10px;
+            font-size: 16px;
+        }
+        
+        /* Additional Courses Section */
+        .additional-courses {
+            padding: 60px 0;
+            background-color: white;
+        }
+        
+        .courses-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 30px;
+        }
+        
+        .course-card {
+            background: #f9f9f9;
+            padding: 25px;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.08);
+            border-top: 4px solid #1a237e;
+            transition: transform 0.3s;
+        }
+        
+        .course-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 30px rgba(0,0,0,0.15);
+        }
+        
+        .course-card h3 {
+            color: #1a237e;
+            font-size: 20px;
+            margin-bottom: 15px;
+            text-align: center;
+        }
+        
+        .course-card p {
+            color: #555;
+            margin-bottom: 20px;
+            line-height: 1.6;
+            font-size: 15px;
+        }
+        
+        /* Short Courses Section */
+        .short-courses {
+            padding: 60px 0;
+            background-color: #f0f5ff;
+        }
+        
+        .short-courses-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 30px;
+        }
+        
+        /* CTA Section */
+        .cta-section {
+            background: linear-gradient(135deg, #1a237e 0%, #283593 100%);
+            color: white;
+            padding: 60px 0;
+            text-align: center;
+        }
+        
+        .cta-section h2 {
+            font-size: 28px;
+            margin-bottom: 20px;
+        }
+        
+        .cta-section p {
+            font-size: 16px;
+            max-width: 800px;
+            margin: 0 auto 40px;
+            opacity: 0.9;
+        }
+        
+        .cta-buttons {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            flex-wrap: wrap;
+        }
+        
+        .cta-btn {
+            padding: 12px 30px;
+            border-radius: 4px;
+            font-weight: 600;
+            font-size: 15px;
+            cursor: pointer;
+            transition: all 0.3s;
+            border: none;
+        }
+        
+        .cta-btn.primary {
+            background-color: #e53935;
+            color: white;
+        }
+        
+        .cta-btn.secondary {
+            background-color: transparent;
+            color: white;
+            border: 2px solid white;
+        }
+        
+        .cta-btn:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+        }
+        
+        .cta-btn.primary:hover {
+            background-color: #c62828;
+        }
+        
+        .cta-btn.secondary:hover {
+            background-color: rgba(255, 255, 255, 0.1);
+        }
+        
+        /* Footer */
+        .footer {
+            background-color: #1a237e;
+            color: white;
+            padding: 50px 0 20px;
+        }
+        
+        .footer-content {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 30px;
+            margin-bottom: 40px;
+        }
+        
+        .footer-column h3 {
+            font-size: 16px;
+            margin-bottom: 20px;
+            position: relative;
+            padding-bottom: 10px;
+        }
+        
+        .footer-column h3:after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 40px;
+            height: 2px;
+            background-color: #e53935;
+        }
+        
+        .footer-column p {
+            margin-bottom: 15px;
+            font-size: 13px;
+            opacity: 0.8;
+        }
+        
+        .footer-column a {
+            display: block;
+            margin-bottom: 10px;
+            font-size: 13px;
+            opacity: 0.8;
+            transition: opacity 0.3s;
+            cursor: pointer;
+        }
+        
+        .footer-column a:hover {
+            opacity: 1;
+        }
+        
+        .footer-bottom {
+            text-align: center;
+            padding-top: 20px;
+            border-top: 1px solid rgba(255,255,255,0.1);
+            font-size: 13px;
+            opacity: 0.7;
+        }
+        
+        /* Responsive Styles */
+        
+        /* Tablet */
+        @media (min-width: 768px) {
+            .computer-hero h1 {
+                font-size: 36px;
+            }
+            
+            .computer-hero p {
+                font-size: 17px;
+            }
+            
+            .section-title {
+                font-size: 32px;
+            }
+            
+            .logo-text h1 {
+                font-size: 22px;
+            }
+            
+            .main-nav > ul > li {
+                margin-left: 20px;
+            }
+            
+            .main-nav > ul > li > a {
+                font-size: 15px;
+            }
+        }
+        
+        /* Desktop */
+        @media (min-width: 992px) {
+            .computer-hero {
+                padding: 80px 0;
+            }
+            
+            .computer-hero h1 {
+                font-size: 42px;
+            }
+            
+            .computer-hero p {
+                font-size: 18px;
+            }
+            
+            .intro-section, .courses-section, .additional-courses, .cta-section {
+                padding: 80px 0;
+            }
+            
+            .section-title {
+                font-size: 36px;
+            }
+            
+            .logo-text h1 {
+                font-size: 24px;
+            }
+            
+            .main-nav > ul > li {
+                margin-left: 25px;
+            }
+        }
+        
+        /* Mobile View */
+        @media (max-width: 767px) {
+            .header-top .container {
+                flex-direction: column;
+                text-align: center;
+                gap: 8px;
+            }
+            
+            .contact-info span {
+                display: block;
+                margin-right: 0;
+                margin-bottom: 5px;
+            }
+            
+            .contact-info span:last-child {
+                margin-bottom: 0;
+            }
+            
+            .logo {
+                max-width: 100%;
+                margin-bottom: 10px;
+                justify-content: center;
+                text-align: center;
+            }
+            
+            .logo-text h1 {
+                font-size: 18px;
+            }
+            
+            .logo-img {
+                margin-right: 10px;
+            }
+            
+            .menu-toggle {
+                display: flex;
+                position: absolute;
+                top: 50%;
+                right: 15px;
+                transform: translateY(-50%);
+                z-index: 1001;
+            }
+            
+            .main-nav {
+                position: fixed;
+                top: 0;
+                left: -100%;
+                width: 80%;
+                max-width: 300px;
+                height: 100vh;
+                background-color: white;
+                box-shadow: 0 0 15px rgba(0,0,0,0.1);
+                overflow-y: auto;
+                transition: left 0.3s ease;
+                z-index: 1000;
+                padding-top: 60px;
+            }
+            
+            .main-nav.active {
+                left: 0;
+            }
+            
+            .main-nav > ul {
+                flex-direction: column;
+                align-items: stretch;
+                padding: 0;
+            }
+            
+            .main-nav > ul > li {
+                margin: 0;
+                border-bottom: 1px solid #f0f0f0;
+            }
+            
+            .main-nav > ul > li > a {
+                padding: 15px 20px;
+                font-size: 16px;
+                border-bottom: none;
+            }
+            
+            .dropdown {
+                position: static;
+                opacity: 1;
+                visibility: visible;
+                transform: none;
+                box-shadow: none;
+                background-color: #f9f9f9;
+                max-height: 0;
+                overflow: hidden;
+                transition: max-height 0.3s ease;
+                min-width: auto;
+                border-radius: 0;
+            }
+            
+            .dropdown.active {
+                max-height: 500px;
+            }
+            
+            .dropdown a {
+                padding-left: 40px;
+                font-size: 14px;
+            }
+            
+            .dropdown .dropdown {
+                position: static;
+                margin-left: 0;
+            }
+            
+            .dropdown .dropdown a {
+                padding-left: 60px;
+            }
+            
+            .has-dropdown > a::after {
+                float: right;
+            }
+            
+            .computer-hero {
+                padding: 40px 0;
+            }
+            
+            .computer-hero h1 {
+                font-size: 28px;
+            }
+            
+            .computer-hero p {
+                font-size: 15px;
+                padding: 0 10px;
+            }
+            
+            .intro-section, .courses-section, .additional-courses, .cta-section {
+                padding: 40px 0;
+            }
+            
+            .section-title {
+                font-size: 24px;
+            }
+            
+            .intro-content {
+                font-size: 15px;
+                padding: 0 10px;
+            }
+            
+            .courses-tabs {
+                flex-direction: column;
+                align-items: center;
+            }
+            
+            .tab-btn {
+                width: 100%;
+                max-width: 300px;
+                margin-bottom: 5px;
+            }
+            
+            .course-content {
+                padding: 20px;
+                margin: 0 10px;
+            }
+            
+            .course-header h3 {
+                font-size: 22px;
+            }
+            
+            .course-modules {
+                grid-template-columns: 1fr;
+                gap: 20px;
+            }
+            
+            .courses-grid, .short-courses-grid {
+                grid-template-columns: 1fr;
+                gap: 20px;
+                padding: 0 10px;
+            }
+            
+            .course-card {
+                padding: 20px;
+            }
+            
+            .course-card h3 {
+                font-size: 20px;
+            }
+            
+            .cta-section h2 {
+                font-size: 24px;
+            }
+            
+            .cta-section p {
+                font-size: 15px;
+                padding: 0 15px;
+            }
+            
+            .cta-buttons {
+                flex-direction: column;
+                align-items: center;
+            }
+            
+            .cta-btn {
+                width: 100%;
+                max-width: 300px;
+            }
+            
+            .footer-content {
+                grid-template-columns: 1fr;
+                gap: 20px;
+                padding: 0 15px;
+            }
+            
+            /* Overlay when menu is open */
+            .menu-overlay {
+                display: none;
+                position: fixed;
+                top: 0;
+                left: 0;
+                width: 100%;
+                height: 100%;
+                background-color: rgba(0,0,0,0.5);
+                z-index: 999;
+            }
+            
+            .menu-overlay.active {
+                display: block;
+            }
+        }
+        
+        /* Extra Small Mobile */
+        @media (max-width: 480px) {
+            .computer-hero h1 {
+                font-size: 24px;
+            }
+            
+            .section-title {
+                font-size: 22px;
+            }
+            
+            .logo-text h1 {
+                font-size: 16px;
+            }
+            
+            .logo-img {
+                width: 50px;
+                height: 50px;
+                min-width: 50px;
+                font-size: 18px;
+            }
+            
+            .cta-button, .cta-btn {
+                padding: 10px 20px;
+                font-size: 14px;
+            }
+            
+            .course-info {
+                flex-direction: column;
+                gap: 15px;
+            }
+            
+            .info-item {
+                width: 100%;
+            }
+        }
+    </style>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+    <!-- Header Top -->
+    <div class="header-top">
+        <div class="container">
+            <div class="contact-info">
+                <span><i class="fas fa-phone"></i> +91 9958430389</span>
+                <span><i class="fas fa-envelope"></i> info@wimt.org</span>
+            </div>
+            <div class="social-icons">
+                <a href="#"><i class="fab fa-facebook-f"></i></a>
+                <a href="#"><i class="fab fa-twitter"></i></a>
+                <a href="#"><i class="fab fa-linkedin-in"></i></a>
+                <a href="#"><i class="fab fa-instagram"></i></a>
+            </div>
+        </div>
+    </div>
+
+    <!-- Main Header -->
+    <header class="main-header">
+        <div class="container">
+            <div class="logo">
+                <div class="logo-img"></div>
+                <div class="logo-text">
+                    <h1>Wintech Institute of Management & Technology</h1>
+                    <p>Best Institute for Online Courses</p>
+                </div>
+            </div>
+            
+            <!-- Mobile Menu Toggle Button -->
+            <button class="menu-toggle" id="menuToggle" aria-label="Toggle menu">
+                <i class="fas fa-bars"></i>
+            </button>
+            
+            <nav class="main-nav" id="mainNav">
+                <ul>
+                    <li><a href="index.html" class="menu-link">Home</a></li>
+                    
+                    <li class="has-dropdown">
+                        <a href="#" class="menu-link">Courses</a>
+                        <ul class="dropdown">
+                            <li><a href="engineering.html" class="menu-link">Engineering</a></li>
+                            <li><a href="manegement course.html" class="menu-link">Management</a></li>
+                            <li><a href="iti course.html" class="menu-link">ITI</a></li>
+                            <li><a href="hotel management.html" class="menu-link">Hotel Management</a></li>
+                            <li><a href="computer course.html" class="menu-link active">Computer Application Courses</a></li>
+                            <li><a href="degital marketing course.html" class="menu-link">Digital Marketing Courses</a></li>
+                        </ul>
+                    </li>
+                    
+                    <li class="has-dropdown">
+                        <a href="#" class="menu-link">Examination</a>
+                        <ul class="dropdown">
+                            <li><a href="form.html" class="menu-link">Other Forms</a></li>
+                            <li><a href="result.html" class="menu-link">Results</a></li>
+                            <li><a href="application.html" class="menu-link">Application Form</a></li>
+                            <li><a href="#" class="menu-link">Fees Structure</a></li>
+                        </ul>
+                    </li>
+                    
+                    <li><a href="contect us.html" class="menu-link">Contact</a></li>
+                    <li><a href="verification.html" class="menu-link">Verification</a></li>
+                 
+                </ul>
+            </nav>
+            
+            <!-- Mobile Menu Overlay -->
+            <div class="menu-overlay" id="menuOverlay"></div>
+        </div>
+    </header>
+
+    <!-- Computer Courses Hero Section -->
+    <section class="computer-hero">
+        <div class="container">
+            <h1>Best Computer Application Courses</h1>
+            <p>Wintech Institute of Management & Technology (WIMT) offers some of the best computer application courses designed to meet the evolving demands of the IT industry. Our programs include the Bachelor of Computer Applications (BCA), Master of Computer Applications (MCA), Post Graduate Diploma in Computer Applications (PGDCA), Diploma in Computer Applications (DCA), Advanced Diploma in Computer Applications (ADCA), and even BTech in CS for those aiming for an in-depth technical education.</p>
+            <button class="cta-button">ENQUIRE NOW</button>
+        </div>
+    </section>
+
+    <!-- Introduction Section -->
+    <section class="intro-section">
+        <div class="container">
+            <h2 class="section-title">About Our Computer Application Courses</h2>
+            <div class="intro-content">
+                <p>These courses cover essential areas such as programming languages, web development, database management, and digital marketing. For students searching for computer diploma or diploma courses near me, WIMT provides accessible, flexible learning options through both online and distance education modes.</p>
+                <p>With a strong focus on both theoretical knowledge and practical skills, WIMT ensures students are fully prepared for careers in software development, IT support, and related fields. WIMT's commitment to quality education makes it a trusted and reputable choice for aspiring professionals in the world of computer applications.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Main Courses Section -->
+    <section class="courses-section" id="computer-courses">
+        <div class="container">
+            <h2 class="section-title">Our Computer Application Programs</h2>
+            
+            <div class="courses-tabs">
+                <button class="tab-btn active" data-tab="bca">BCA (3 Years)</button>
+                <button class="tab-btn" data-tab="mca">MCA (2 Years)</button>
+                <button class="tab-btn" data-tab="pgdca">PGDCA (1 Year)</button>
+                <button class="tab-btn" data-tab="dca">DCA (1 Year)</button>
+            </div>
+            
+            <!-- BCA Course -->
+            <div class="course-content active" id="bca">
+                <div class="course-header">
+                    <h3>Bachelors in Computer Applications (BCA)</h3>
+                    <p>The Integrated Bachelors in Computer Application of Wintech Institute of Management & Technology Best Computer application Courses is beneficial for students and professionals who are looking for fast and early career growth in the field of information technology. Course objective is to nurture and introduce computer application skills while doing job or from their home through online facilities.</p>
+                    <div class="course-info">
+                        <div class="info-item">
+                            <h4>Eligibility</h4>
+                            <p>12th/Diploma/Equivalent</p>
+                        </div>
+                        <div class="info-item">
+                            <h4>Duration</h4>
+                            <p>3 Years</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="course-modules">
+                    <div class="module-card">
+                        <h4>Semester - I</h4>
+                        <ul class="module-list">
+                            <li>BCA 101 Fundamentals of IT & Computers</li>
+                            <li>BCA 102 Digital Electronics</li>
+                            <li>BCA 103 Basic Mathematics</li>
+                            <li>BCA 104 English Communication</li>
+                            <li>BCA 105 C Language Lab</li>
+                        </ul>
+                    </div>
+                    
+                    <div class="module-card">
+                        <h4>Semester - II</h4>
+                        <ul class="module-list">
+                            <li>BCA 201 Operating Systems and Fundamentals</li>
+                            <li>BCA 202 Organizational Behaviour</li>
+                            <li>BCA 203 C Language Advanced Concepts</li>
+                            <li>BCA 204 Advanced Mathematics</li>
+                            <li>BCA 205 Advanced C Programming Lab</li>
+                        </ul>
+                    </div>
+                    
+                    <div class="module-card">
+                        <h4>Semester - III</h4>
+                        <ul class="module-list">
+                            <li>BCA 301 Database Management Systems</li>
+                            <li>BCA 302 Open Source Technology</li>
+                            <li>BCA 303 Software Engineering</li>
+                            <li>BCA 304 Web-Based Applications</li>
+                            <li>BCA 305 DBMS and Web Technology Lab</li>
+                        </ul>
+                    </div>
+                    
+                    <div class="module-card">
+                        <h4>Semester - IV</h4>
+                        <ul class="module-list">
+                            <li>BCA 401 Web Designing</li>
+                            <li>BCA 402 Data Structures</li>
+                            <li>BCA 403 Introduction to Linux</li>
+                            <li>BCA 404 Object-Oriented Programming</li>
+                            <li>BCA 405 Cloud Computing</li>
+                        </ul>
+                    </div>
+                    
+                    <div class="module-card">
+                        <h4>Semester - V</h4>
+                        <ul class="module-list">
+                            <li>BCA 501 Software Engineering - I</li>
+                            <li>BCA 502 Java Programming</li>
+                            <li>BCA 503 Python Language</li>
+                            <li>BCA 504 E Commerce and Marketing</li>
+                            <li>BCA 505 Gaming and Animation</li>
+                            <li>BCA 506 Advanced Java and Python Lab</li>
+                        </ul>
+                    </div>
+                    
+                    <div class="module-card">
+                        <h4>Semester - VI</h4>
+                        <ul class="module-list">
+                            <li>BCA 601 Artificial Intelligence</li>
+                            <li>BCA 602 Information Security</li>
+                            <li>BCA 603 Application Development</li>
+                            <li>BCA 604 Digital Marketing</li>
+                            <li>BCA 605 Project</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- MCA Course -->
+            <div class="course-content" id="mca">
+                <div class="course-header">
+                    <h3>Masters in Computer Applications (MCA)</h3>
+                    <p>The Integrated Masters in Computer Application of Wintech Institute of Management & Technology Best Computer Application Courses is beneficial for students and professionals who are looking for fast and early career growth in the field of information technology. The course objective is to nurture and introduce computer application skills while doing the job or from their home through online facilities.</p>
+                    <div class="course-info">
+                        <div class="info-item">
+                            <h4>Eligibility</h4>
+                            <p>Graduation/Diploma/Equivalent</p>
+                        </div>
+                        <div class="info-item">
+                            <h4>Duration</h4>
+                            <p>2 Years</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="course-modules">
+                    <div class="module-card">
+                        <h4>Semester I</h4>
+                        <ul class="module-list">
+                            <li>MCA 101 Fundamentals of Computers</li>
+                            <li>MCA 102 Problem Solving using C</li>
+                            <li>MCA 103 Computer Organization and Architecture</li>
+                            <li>MCA 104 Web Programming</li>
+                        </ul>
+                    </div>
+                    
+                    <div class="module-card">
+                        <h4>Semester II</h4>
+                        <ul class="module-list">
+                            <li>MCA 201 Data Structures</li>
+                            <li>MCA 202 Operating Systems</li>
+                            <li>MCA 203 Database Management System</li>
+                            <li>MCA 204 Object Oriented Programming</li>
+                        </ul>
+                    </div>
+                    
+                    <div class="module-card">
+                        <h4>Semester III</h4>
+                        <ul class="module-list">
+                            <li>MCA 301 System Analysis and Design</li>
+                            <li>MCA 302 Software Engineering</li>
+                            <li>MCA 303 Computer Graphics and Multimedia</li>
+                            <li>MCA 304 Management of Information System</li>
+                        </ul>
+                    </div>
+                    
+                    <div class="module-card">
+                        <h4>Semester IV</h4>
+                        <ul class="module-list">
+                            <li>MCA 401 Data Communication and Computer Networks</li>
+                            <li>MCA 402 Network Security and Management</li>
+                            <li>MCA 403 Cryptography and Information Security/IT Strategy and Management</li>
+                            <li>MCA 404 Project Work</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- PGDCA Course -->
+            <div class="course-content" id="pgdca">
+                <div class="course-header">
+                    <h3>Post Graduate Diploma in Computer Application (PGDCA)</h3>
+                    <p>Wintech Institute of Management & Technology offers a one-year Post Graduate Diploma in Computer Applications (PGDCA), covering programming, database management, networking, and web development. Recognized among the best computer application courses, it equips graduates with practical IT skills for roles like software developer or data analyst. Flexible learning options and industry-aligned training make it a top choice for aspiring IT professionals.</p>
+                    <div class="course-info">
+                        <div class="info-item">
+                            <h4>Duration</h4>
+                            <p>1 Year</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="course-modules">
+                    <div class="module-card">
+                        <h4>Semester - I</h4>
+                        <ul class="module-list">
+                            <li>PGDCA 101 Fundamentals of Information Technology</li>
+                            <li>PGDCA 102 Programming</li>
+                            <li>PGDCA 103 Soft Skills</li>
+                            <li>PGDCA 104 Software Engineering</li>
+                            <li>PGDCA 105 Business Process</li>
+                            <li>PGDCA 106 Oracle</li>
+                            <li>PGDCA 107 Web Programming</li>
+                            <li>PGDCA 108 Practical Work</li>
+                        </ul>
+                    </div>
+                    
+                    <div class="module-card">
+                        <h4>Semester - II</h4>
+                        <ul class="module-list">
+                            <li>PGDCA 201 Visual Basics</li>
+                            <li>PGDCA 202 Java</li>
+                            <li>PGDCA 203 DBMS</li>
+                            <li>PGDCA 204 Data Structure & Algorithms</li>
+                            <li>PGDCA 205 PPM & OB</li>
+                            <li>PGDCA 206 Projects</li>
+                            <li>PGDCA 207 Practical Work</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- DCA Course -->
+            <div class="course-content" id="dca">
+                <div class="course-header">
+                    <h3>Diploma in Computer Applications (DCA)</h3>
+                    <p>The Integrated Diploma in Computer Application of Wintech Institute of Management & Technology Best Computer Application Courses is beneficial for students and professionals who are looking for fast and early career growth in the field of information technology. The course objective is to nurture and introduce computer application skills while doing the job or from their home through online facilities.</p>
+                    <div class="course-info">
+                        <div class="info-item">
+                            <h4>Eligibility</h4>
+                            <p>12th/Equivalent</p>
+                        </div>
+                        <div class="info-item">
+                            <h4>Duration</h4>
+                            <p>1 Year</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="course-modules">
+                    <div class="module-card">
+                        <h4>Semester I</h4>
+                        <ul class="module-list">
+                            <li>DCA 101 Fundamentals of Computers</li>
+                            <li>DCA 102 Programming and Application Program</li>
+                            <li>DCA 103 Database Management System</li>
+                        </ul>
+                    </div>
+                    
+                    <div class="module-card">
+                        <h4>Semester II</h4>
+                        <ul class="module-list">
+                            <li>DCA 201 Visual Basics (VB)</li>
+                            <li>DCA 202 Internet and Web Page Designing</li>
+                            <li>DCA 203 Practical on C Programming</li>
+                            <li>DCA 204 Practical on Application Program</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Additional Courses Section -->
+    <section class="additional-courses">
+        <div class="container">
+            <h2 class="section-title">Additional Computer Courses</h2>
+            
+            <div class="courses-grid">
+                <div class="course-card">
+                    <h3>Advanced Diploma in Computer Application (ADCA)</h3>
+                    <div class="course-info">
+                        <div class="info-item">
+                            <h4>Eligibility</h4>
+                            <p>10th</p>
+                        </div>
+                        <div class="info-item">
+                            <h4>Duration</h4>
+                            <p>1 Year</p>
+                        </div>
+                    </div>
+                    <p>Comprehensive course covering fundamental to advanced computer applications including networking, mobile app development, and cyber security.</p>
+                    <div class="module-card" style="margin-top: 20px; padding: 15px;">
+                        <h4 style="font-size: 16px; margin-bottom: 10px;">Course Modules</h4>
+                        <ul class="module-list" style="font-size: 14px;">
+                            <li>Fundamentals of Computers</li>
+                            <li>Operating Systems</li>
+                            <li>Programming Language</li>
+                            <li>Web Technologies</li>
+                            <li>Database Management System</li>
+                            <li>Software Engineering</li>
+                            <li>Networking</li>
+                            <li>Mobile App Development</li>
+                            <li>Cyber Security</li>
+                            <li>Soft Skills and Communication</li>
+                            <li>Project Work</li>
+                        </ul>
+                    </div>
+                </div>
+                
+                <div class="course-card">
+                    <h3>Course on Computer Concepts (CCC)</h3>
+                    <div class="course-info">
+                        <div class="info-item">
+                            <h4>Eligibility</h4>
+                            <p>10th</p>
+                        </div>
+                        <div class="info-item">
+                            <h4>Duration</h4>
+                            <p>6 Months</p>
+                        </div>
+                    </div>
+                    <p>Basic computer literacy course covering essential computer concepts, operating systems, word processing, spreadsheets, and internet usage.</p>
+                    <div class="module-card" style="margin-top: 20px; padding: 15px;">
+                        <h4 style="font-size: 16px; margin-bottom: 10px;">Course Modules</h4>
+                        <ul class="module-list" style="font-size: 14px;">
+                            <li>Introduction to Computer</li>
+                            <li>Introduction to GUI Based Operating System</li>
+                            <li>Elements of Word Processing</li>
+                            <li>Spreadsheets</li>
+                            <li>Computer Communication and Internet</li>
+                            <li>WWW and Web Browsers</li>
+                            <li>Communication and Collaboration</li>
+                            <li>Making Small Presentation</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA Section -->
+    <section class="cta-section">
+        <div class="container">
+            <h2>Start Your Career in Computer Applications</h2>
+            <p>Join thousands of successful students who have built their careers with our industry-relevant computer application courses. Whether you're starting fresh or upgrading your skills, we have the perfect course for your career goals.</p>
+            <div class="cta-buttons">
+                <button class="cta-btn primary">Apply Now</button>
+                <button class="cta-btn secondary">Download Course Catalog</button>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-column">
+                    <h3>WIMT Institute</h3>
+                    <p>Wintech Institute of Management & Technology (WIMT) is committed to delivering high-quality education through innovative learning techniques and industry-relevant programs.</p>
+                    
+                </div>
+             
+                <div class="footer-column">
+                    <h3>Contact Info</h3>
+                    <p><i class="fas fa-map-marker-alt"></i> A1/1, Central Market Budela, Vikaspuri, New Delhi - 110018</p>
+                    <p><i class="fas fa-phone"></i> +91 9958430389</p>
+                    <p><i class="fas fa-envelope"></i> Info@wimt.org</p>
+                    <p><i class="fas fa-globe"></i> www.wimt.org</p>
+                </div>
+                <div class="footer-column">
+                    <h3>Approvals</h3>
+                    <p>U.G.C Approved Universities</p>
+                    <p>NCT Approved Institute</p>
+                    <p>Various Certified Courses</p>
+                    <p>Industry Recognized Programs</p>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>© Copyright 1990 Wintech Institute of Management & Technology. All Rights Reserved.</p>
+                <p>Designed for Your Success. | Development by DigiSe</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // ==================== MOBILE MENU FUNCTIONALITY ====================
+        const menuToggle = document.getElementById('menuToggle');
+        const mainNav = document.getElementById('mainNav');
+        const menuOverlay = document.getElementById('menuOverlay');
+        let isMenuOpen = false;
+        
+        // Toggle menu function
+        function toggleMenu() {
+            isMenuOpen = !isMenuOpen;
+            mainNav.classList.toggle('active');
+            menuOverlay.classList.toggle('active');
+            
+            if (isMenuOpen) {
+                menuToggle.innerHTML = '<i class="fas fa-times"></i>';
+                document.body.style.overflow = 'hidden';
+            } else {
+                menuToggle.innerHTML = '<i class="fas fa-bars"></i>';
+                document.body.style.overflow = 'auto';
+            }
+        }
+        
+        // Menu toggle click event
+        menuToggle.addEventListener('click', function(e) {
+            e.stopPropagation();
+            toggleMenu();
+        });
+        
+        // Close menu when clicking overlay
+        menuOverlay.addEventListener('click', function() {
+            if (isMenuOpen) {
+                toggleMenu();
+            }
+        });
+        
+        // Close menu when clicking a link
+        document.querySelectorAll('.main-nav a').forEach(link => {
+            link.addEventListener('click', function() {
+                if (window.innerWidth <= 767 && isMenuOpen) {
+                    toggleMenu();
+                }
+            });
+        });
+        
+        // Mobile dropdown toggle
+        document.querySelectorAll('.has-dropdown > a').forEach(dropdownToggle => {
+            dropdownToggle.addEventListener('click', function(e) {
+                if (window.innerWidth <= 767) {
+                    e.preventDefault();
+                    const dropdown = this.nextElementSibling;
+                    const isActive = dropdown.classList.contains('active');
+                    
+                    // Close all other dropdowns
+                    document.querySelectorAll('.dropdown.active').forEach(activeDropdown => {
+                        if (activeDropdown !== dropdown) {
+                            activeDropdown.classList.remove('active');
+                        }
+                    });
+                    
+                    // Toggle current dropdown
+                    dropdown.classList.toggle('active');
+                }
+            });
+        });
+        
+        // Close dropdowns when clicking outside on mobile
+        document.addEventListener('click', function(e) {
+            if (window.innerWidth <= 767 && isMenuOpen) {
+                if (!mainNav.contains(e.target) && !menuToggle.contains(e.target)) {
+                    toggleMenu();
+                }
+            }
+        });
+        
+        // Handle window resize
+        window.addEventListener('resize', function() {
+            if (window.innerWidth > 767 && isMenuOpen) {
+                // Reset menu state on desktop
+                toggleMenu();
+            }
+        });
+        
+        // ==================== COURSE TABS FUNCTIONALITY ====================
+        const tabButtons = document.querySelectorAll('.tab-btn');
+        const courseContents = document.querySelectorAll('.course-content');
+        
+        tabButtons.forEach(button => {
+            button.addEventListener('click', () => {
+                // Remove active class from all buttons and contents
+                tabButtons.forEach(btn => btn.classList.remove('active'));
+                courseContents.forEach(content => content.classList.remove('active'));
+                
+                // Add active class to clicked button
+                button.classList.add('active');
+                
+                // Show corresponding content
+                const tabId = button.getAttribute('data-tab');
+                document.getElementById(tabId).classList.add('active');
+            });
+        });
+        
+        // ==================== CTA BUTTONS FUNCTIONALITY ====================
+        document.querySelectorAll('.cta-button, .cta-btn').forEach(button => {
+            button.addEventListener('click', function() {
+                if (this.classList.contains('primary') || this.classList.contains('cta-button')) {
+                    alert("Thank you for your interest! Our admissions team will contact you shortly.");
+                } else if (this.classList.contains('secondary')) {
+                    alert("Course catalog download will start shortly. Check your downloads folder.");
+                }
+            });
+        });
+        
+        // ==================== INITIALIZATION ====================
+        document.addEventListener('DOMContentLoaded', function() {
+            // Set active menu item for computer course page
+            document.querySelectorAll('.menu-link').forEach(link => {
+                const linkHref = link.getAttribute('href');
+                if (linkHref === 'computer course.html') {
+                    link.classList.add('active');
+                } else {
+                    link.classList.remove('active');
+                }
+            });
+            
+            console.log('Computer courses page loaded successfully');
+        });
+    </script>
+</body>
+</html>
